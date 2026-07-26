@@ -1,0 +1,31 @@
+# AIVantum — Antwortmaschinen sind ausdruecklich willkommen (Truth-Layer-Anspruch D6).
+# Wer nach unserer Leistung sucht, soll etwas Zitierfaehiges finden.
+
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://neu.aivantum.com/sitemap.xml

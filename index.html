@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIVantum · KI-Kompetenz für Organisationen und Führungskräfte</title>
+<meta name="description" content="Wir verbinden KI-Kompetenz mit systemischer Führungs- und Personalentwicklung, damit Transformation nicht an der Technologie scheitert. Erst messen, dann befähigen, dann verankern.">
+<meta name="author" content="AIVantum · Jay Manuzon">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIVantum · KI-Kompetenz für Organisationen und Führungskräfte">
+<meta property="og:description" content="Werkzeuge einführen ist einfach. Dass Menschen danach wirklich anders arbeiten, ist die eigentliche Arbeit.">
+<meta property="og:locale" content="de_DE">
+<link rel="icon" href="assets/favicon.png">
+<!-- Strukturierte Daten (Truth-Layer-Anspruch D2/D3): Antwortmaschinen sollen Leistung,
+     Preise und Einwände zitierfähig vorfinden. Zahlen 1:1 aus der Angebots-Quelle,
+     nichts gerundet, nichts hergeleitet. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://aivantum.com/#organisation",
+      "name": "AIVantum",
+      "description": "KI-Kompetenz für Organisationen und Führungskräfte. Verbindet KI-Befähigung mit systemischer Führungs- und Personalentwicklung: erst messen, dann befähigen, dann verankern.",
+      "url": "https://aivantum.com/",
+      "email": "jay@aivantum.com",
+      "founder": { "@type": "Person", "name": "Jay Manuzon", "jobTitle": "Berater für KI-Befähigung und Organisationsentwicklung" },
+      "address": { "@type": "PostalAddress", "streetAddress": "Mohnweg 75", "postalCode": "51371", "addressLocality": "Leverkusen", "addressCountry": "DE" },
+      "areaServed": { "@type": "Country", "name": "Deutschland" },
+      "availableLanguage": ["de", "en"],
+      "knowsAbout": ["KI-Befähigung", "AI Value Capture", "EU AI Act", "Organisationsentwicklung", "Führungskräfteentwicklung", "KI-Kompetenz nach Artikel 4"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Einstiege",
+        "itemListElement": [
+          { "@type": "Offer", "name": "AI Value Capture Diagnostik für Organisationen", "description": "Mehrstufige Diagnostik der KI-Wertschöpfungspotenziale von der Unternehmensführung bis in Produktion, Infrastruktur und Hardware, mit ROI je Maßnahme.", "priceCurrency": "EUR", "price": "2000", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2000", "maxPrice": "13000", "priceCurrency": "EUR", "valueAddedTaxIncluded": false } },
+          { "@type": "Offer", "name": "AI Value Capture für Führungskräfte", "description": "Inklusive Diagnostik, für zwei bis zehn Führungskräfte, mit detailliertem Bericht und umsetzbaren Maßnahmen.", "priceCurrency": "EUR", "price": "800", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "800", "maxPrice": "4000", "priceCurrency": "EUR", "valueAddedTaxIncluded": false } },
+          { "@type": "Offer", "name": "Externer KI-Beauftragter", "description": "KI-Inventar, KI-Richtlinie, Schulungsnachweis nach Artikel 4, laufendes Monitoring und Quartals-Risikoprüfung im Monatsabo. Einmalig 990 Euro für Inventar und Erstaufsetzung.", "priceCurrency": "EUR", "price": "490", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "490", "priceCurrency": "EUR", "unitCode": "MON", "valueAddedTaxIncluded": false } },
+          { "@type": "Offer", "name": "Initialgespräch", "description": "30 Minuten, kostenfrei, ohne Vorbereitung.", "priceCurrency": "EUR", "price": "0" }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aivantum.com/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Wir sind zu klein für so etwas.", "acceptedAnswer": { "@type": "Answer", "text": "Kleiner heißt in der Regel schneller. Bei zwanzig Leuten lässt sich an einem Nachmittag klären, was in einem Konzern ein Quartal braucht. Der Einstieg für Führungsteams beginnt bei 800 Euro und ist für diese Größe gedacht." } },
+        { "@type": "Question", "name": "Wir haben keine IT-Abteilung.", "acceptedAnswer": { "@type": "Answer", "text": "Für den Anfang ist keine nötig. Die ersten beiden Bewegungen, Messen und Befähigen, laufen ohne eine einzige Systemänderung. Erst wenn es an Infrastruktur geht, braucht es jemanden mit Zugriff." } },
+        { "@type": "Question", "name": "Meine Leute haben Angst, dass ihr Job wegrationalisiert wird.", "acceptedAnswer": { "@type": "Answer", "text": "In der Befähigung entscheiden die Mitarbeitenden selbst, welche ihrer Aufgaben sie abgeben wollen. Wo Stellen tatsächlich zur Debatte stehen, wird das der Führung deutlich gesagt statt hinter Effizienz versteckt." } },
+        { "@type": "Question", "name": "Kriegen wir am Ende wieder nur einen Foliensatz?", "acceptedAnswer": { "@type": "Answer", "text": "Aus der Diagnostik kommt eine Maßnahmenkarte mit ROI je Position. Aus der Befähigung kommt etwas, das am nächsten Tag im Betrieb läuft, weil an echten Aufgaben gearbeitet wurde." } },
+        { "@type": "Question", "name": "Und der Datenschutz? Und der EU AI Act?", "acceptedAnswer": { "@type": "Answer", "text": "Inventar der genutzten Systeme, eine lesbare Nutzungsregelung mit Ampelmodell statt Pauschalverbot, und ein dokumentierter Schulungsnachweis nach Artikel 4. Die rechtsverbindliche Einordnung gehört zum Rechtsbeistand." } },
+        { "@type": "Question", "name": "Wir hatten schon eine Schulung. Es hat nichts gebracht.", "acceptedAnswer": { "@type": "Answer", "text": "Ein Training verändert Verhalten nur, wenn danach jemand die Rahmenbedingungen ändert: Erwartungen, Zeit, Rollen. Genau das ist die dritte Bewegung, und die meisten Anbieter hören vorher auf." } },
+        { "@type": "Question", "name": "Was kostet das am Ende wirklich?", "acceptedAnswer": { "@type": "Answer", "text": "Es kommen Reisekosten bei Präsenzterminen und Umsatzsteuer hinzu. Es kommen keine Lizenzgebühren, Erfolgsbeteiligungen oder Rahmenverträge hinzu." } }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Selbst gehostete Schriften (SIL OFL 1.1) — lokal mitgeliefert,
+   damit beim Seitenaufruf KEINE Verbindung zu Google entsteht (DSGVO). */
+/* Selbst gehostete Schriften (SIL OFL 1.1) — lokal mitgeliefert,
+   damit beim Seitenaufruf KEINE Verbindung zu Google entsteht (DSGVO). */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/hanken-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/hanken-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/hanken-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/hanken-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/hanken-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/hanken-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root{
+  --tief:#111b2e;          /* dominante dunkle Fläche */
+  --tief-3:#0d1626;        /* zweite, tiefere Stufe — trennt zwei dunkle Bänder in Folge */
+  --tief-2:#1a2942;        /* zweite dunkle Stufe */
+  --creme:#fbf7ef;
+  --creme-2:#f2ecdf;
+  --tinte:#16233c;
+  --tinte-weich:#5a6580;
+  --akzent:#1a6259;        /* Akzent auf hellem Grund */
+  --akzent-hell:#4aa79a;   /* Akzent auf dunklem Grund */
+  --linie:#e7dfcf;
+  --linie-dunkel:rgba(251,247,239,.15);
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --grotesk:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --rand:clamp(22px,5vw,88px);
+  --kurve:cubic-bezier(.2,.7,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--creme);color:var(--tinte);font-family:var(--grotesk);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--akzent-hell);outline-offset:3px;border-radius:2px}
+
+/* ---------- Kopfleiste ---------- */
+.kopf{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:16px var(--rand);transition:background .4s var(--kurve),box-shadow .4s var(--kurve)}
+.kopf::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(17,27,46,.62) 0%,rgba(17,27,46,.28) 60%,transparent 100%);
+  transition:opacity .4s var(--kurve)}
+.kopf.fest::before{opacity:0}
+.kopf.fest{background:rgba(251,247,239,.94);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--linie)}
+/* Wortbildmarke aus der Gemini-Quelle, freigestellt — zwei Farbfassungen,
+   weil die Kopfleiste beim Scrollen von der dunklen Bühne auf Creme kippt. */
+.marke{position:relative;display:block;height:30px;width:146px;flex:0 0 auto;text-decoration:none}
+.marke img{position:absolute;left:0;top:0;height:100%;width:auto;
+  transition:opacity .4s var(--kurve)}
+.marke .marke-dunkel{opacity:0}
+.kopf.fest .marke .marke-hell{opacity:0}
+.kopf.fest .marke .marke-dunkel{opacity:1}
+.kopf-knopf{font-size:14.5px;font-weight:600;text-decoration:none;color:var(--creme);
+  border:1px solid var(--linie-dunkel);padding:9px 18px;border-radius:999px;white-space:nowrap;
+  transition:background .35s var(--kurve),color .35s var(--kurve),border-color .35s var(--kurve)}
+.kopf-knopf:hover{background:var(--creme);color:var(--tief);border-color:var(--creme)}
+.kopf.fest .kopf-knopf{color:var(--creme);background:var(--akzent);border-color:var(--akzent)}
+.kopf.fest .kopf-knopf:hover{background:var(--tief);border-color:var(--tief)}
+
+/* ---------- Typografie ---------- */
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,7vw,98px);line-height:1.0;letter-spacing:-.017em;color:var(--creme)}
+h1 em{font-style:italic;color:var(--akzent-hell)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.6vw,66px);line-height:1.04;letter-spacing:-.016em}
+h2 em{font-style:italic}
+h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.3vw,32px);line-height:1.16;letter-spacing:-.008em}
+.augenbraue{font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--akzent)}
+.band-tief .augenbraue,.buehne .augenbraue{color:var(--akzent-hell)}
+.blei{font-size:clamp(18px,1.5vw,21px);line-height:1.6;max-width:34em;color:var(--tinte-weich);margin-top:18px}
+.band-tief .blei{color:rgba(251,247,239,.76)}
+.gross{font-family:var(--serif);font-size:clamp(29px,3.8vw,54px);line-height:1.1;letter-spacing:-.018em;font-weight:500;margin-top:22px}
+
+/* ---------- Bänder ---------- */
+.band{padding:clamp(74px,10vw,140px) var(--rand)}
+.band-creme{background:var(--creme)}
+.band-creme-2{background:var(--creme-2)}
+.band-tief{background:var(--tief);color:var(--creme)}
+.band-tiefer{background:var(--tief-3);color:var(--creme);border-top:1px solid rgba(251,247,239,.08)}
+.band-tiefer h2,.band-tiefer h3{color:var(--creme)}
+.band-tiefer .augenbraue{color:var(--akzent-hell)}
+.band-tiefer .blei{color:rgba(251,247,239,.76)}
+.band-tief h2,.band-tief h3{color:var(--creme)}
+.innen{max-width:1180px;margin:0 auto}
+.eng{max-width:760px}
+
+/* ---------- Bühne (Bauteil: Split-Bühne mit randlosem Portrait) ---------- */
+.buehne{position:relative;display:grid;grid-template-columns:1.08fr .92fr;min-height:100svh;background:var(--tief)}
+.buehne-text{display:flex;flex-direction:column;justify-content:center;padding:132px var(--rand) 76px;position:relative;z-index:2}
+.buehne-bild{position:relative;overflow:hidden}
+.buehne-bild img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.buehne-bild::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--tief) 0%,rgba(17,27,46,.35) 26%,transparent 62%)}
+.buehne .unterzeile{margin-top:26px;font-size:clamp(17px,1.35vw,20px);line-height:1.58;max-width:31em;color:rgba(251,247,239,.78)}
+.knopf-reihe{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.knopf{display:inline-flex;align-items:center;gap:10px;background:var(--akzent-hell);color:#08201d;
+  font-family:var(--grotesk);font-size:16px;font-weight:700;text-decoration:none;
+  padding:15px 28px;border-radius:999px;border:0;cursor:pointer;
+  transition:transform .35s var(--kurve),background .35s var(--kurve),box-shadow .35s var(--kurve)}
+.knopf span{transition:transform .35s var(--kurve)}
+.knopf:hover{transform:translateY(-2px);background:var(--creme);box-shadow:0 14px 30px -18px rgba(0,0,0,.6)}
+.knopf:hover span{transform:translateX(5px)}
+.knopf.stumm{background:transparent;color:var(--creme);border:1px solid var(--linie-dunkel)}
+.knopf.stumm:hover{background:rgba(251,247,239,.1);border-color:rgba(251,247,239,.4);box-shadow:none}
+.knopf.hell{background:var(--akzent);color:var(--creme)}
+.knopf.hell:hover{background:var(--tief);color:var(--creme)}
+.buehne-fuss{position:absolute;left:var(--rand);bottom:30px;z-index:2;display:flex;align-items:center;gap:11px;
+  font-size:13px;letter-spacing:.05em;color:rgba(251,247,239,.5)}
+.buehne-fuss i{display:block;width:24px;height:1px;background:rgba(251,247,239,.4);font-style:normal}
+
+/* ---------- Raster ---------- */
+.dreier{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,38px);margin-top:clamp(40px,5vw,66px)}
+.zweier{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.6vw,38px);margin-top:clamp(36px,4vw,54px)}
+
+/* ---------- Weg (Journey) ---------- */
+.weg{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(44px,5vw,70px);
+  border-top:1px solid var(--linie-dunkel)}
+.weg .halt{padding:34px clamp(20px,2.4vw,38px) 8px;border-right:1px solid var(--linie-dunkel);position:relative}
+.weg .halt:last-child{border-right:0}
+.weg .zahl{font-family:var(--serif);font-size:clamp(52px,6vw,92px);line-height:.9;color:var(--akzent-hell);opacity:.85}
+.weg h3{margin-top:14px}
+.weg p{margin-top:14px;font-size:16px;line-height:1.6;color:rgba(251,247,239,.72)}
+.weg .marke-zeit{margin-top:20px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(251,247,239,.45);font-weight:600}
+
+/* ---------- Karten ---------- */
+.karte{background:var(--creme);border:1px solid var(--linie);border-radius:18px;padding:clamp(24px,2.4vw,34px);
+  display:flex;flex-direction:column;transition:transform .4s var(--kurve),box-shadow .4s var(--kurve)}
+.karte:hover{transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(22,35,60,.5)}
+.karte.markiert{border-color:var(--akzent);border-width:1.5px}
+.karte .kopfzeile{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.karte p{margin-top:14px;font-size:16px;line-height:1.62;color:var(--tinte-weich)}
+.karte .preis{margin-top:auto;padding-top:22px;font-size:15px;line-height:1.7;color:var(--tinte)}
+.karte .preis b{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:-.01em}
+.chip{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--creme-2);color:var(--tinte-weich);border:1px solid var(--linie)}
+.chip.akzent{background:rgba(26,98,89,.1);color:var(--akzent);border-color:rgba(26,98,89,.28)}
+
+/* ---------- Bild-Band (randlos, blendet in die dunkle Fläche) ---------- */
+.bild-band{position:relative;margin:0 calc(-1 * var(--rand)) clamp(40px,5vw,64px);overflow:hidden}
+.bild-band img{display:block;width:100%;height:clamp(300px,36vw,540px);object-fit:cover;object-position:50% 16%}
+/* Der Verlauf liegt NUR auf dem Bild — sonst frisst er die Bildunterschrift. */
+.bild-band .schleier{position:absolute;left:0;right:0;top:0;height:clamp(300px,36vw,540px);pointer-events:none;
+  background:linear-gradient(180deg,var(--tief) 0%,transparent 14%,transparent 76%,var(--tief) 100%)}
+.bild-band figcaption{position:relative;z-index:1;margin:16px var(--rand) 0;font-size:14.5px;line-height:1.55;
+  color:rgba(251,247,239,.62);max-width:44em}
+
+/* ---------- Merksatz / Zitat ---------- */
+.leitsatz{border-left:3px solid var(--akzent-hell);padding-left:clamp(20px,2.4vw,34px);max-width:22em}
+.leitsatz p{font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(26px,3.1vw,44px);line-height:1.16;letter-spacing:-.012em}
+
+/* ---------- Zwei-Spalten-Liste ---------- */
+.liste{list-style:none;margin-top:22px;display:grid;gap:13px}
+.liste li{position:relative;padding-left:30px;font-size:16.5px;line-height:1.58}
+.liste li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:1.5px;background:var(--akzent)}
+.band-tief .liste li::before{background:var(--akzent-hell)}
+.liste.nein li::before{background:var(--tinte-weich);opacity:.45}
+
+/* ---------- Einwände / FAQ ---------- */
+.einwand{border-top:1px solid var(--linie);padding:22px 0}
+.einwand:last-of-type{border-bottom:1px solid var(--linie)}
+.einwand summary{cursor:pointer;list-style:none;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+  font-family:var(--serif);font-size:clamp(21px,1.9vw,27px);line-height:1.25;font-weight:500}
+.einwand summary::-webkit-details-marker{display:none}
+.einwand summary::after{content:"+";font-family:var(--grotesk);font-size:24px;line-height:1;color:var(--akzent);
+  transition:transform .3s var(--kurve);flex:0 0 auto}
+.einwand[open] summary::after{transform:rotate(45deg)}
+.einwand p{margin-top:14px;max-width:52em;color:var(--tinte-weich);font-size:16.5px}
+
+/* ---------- Selbst-Check ---------- */
+.check{background:var(--tief-2);border-radius:22px;padding:clamp(26px,3vw,44px);margin-top:clamp(36px,4vw,54px)}
+.check-frage{border-bottom:1px solid var(--linie-dunkel);padding:18px 0;display:flex;flex-wrap:wrap;
+  align-items:center;justify-content:space-between;gap:14px}
+.check-frage:last-of-type{border-bottom:0}
+.check-frage p{font-size:16.5px;line-height:1.5;max-width:36em;flex:1 1 300px;color:var(--creme)}
+.wahl{display:flex;gap:8px;flex:0 0 auto}
+.wahl button{font-family:var(--grotesk);font-size:14px;font-weight:600;padding:8px 17px;border-radius:999px;
+  border:1px solid var(--linie-dunkel);background:transparent;color:rgba(251,247,239,.8);cursor:pointer;
+  transition:background .25s var(--kurve),color .25s var(--kurve),border-color .25s var(--kurve)}
+.wahl button:hover{border-color:rgba(251,247,239,.5);color:var(--creme)}
+.wahl button[aria-pressed="true"]{background:var(--akzent-hell);border-color:var(--akzent-hell);color:#08201d}
+.check-ergebnis{margin-top:26px;padding:22px 24px;border-radius:14px;background:rgba(74,167,154,.12);
+  border:1px solid rgba(74,167,154,.35)}
+.check-ergebnis h3{font-size:clamp(21px,2vw,28px)}
+.check-ergebnis p{margin-top:10px;color:rgba(251,247,239,.82);font-size:16.5px;max-width:46em}
+.check-hinweis{margin-top:16px;font-size:14px;color:rgba(251,247,239,.5)}
+
+/* ---------- Formular ---------- */
+.bogen{position:relative;margin-top:clamp(32px,3.6vw,48px);max-width:720px;display:grid;gap:18px}
+.feld-paar{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feld{display:grid;gap:7px}
+.feld>span{font-size:13.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(251,247,239,.6)}
+.feld>span b{color:var(--akzent-hell)}
+.feld input,.feld textarea,.feld select{width:100%;font-family:var(--grotesk);font-size:16.5px;color:var(--creme);
+  background:rgba(251,247,239,.05);border:1px solid var(--linie-dunkel);border-radius:12px;padding:13px 16px;
+  transition:border-color .3s var(--kurve),background .3s var(--kurve)}
+.feld textarea{resize:vertical;min-height:118px}
+.feld input::placeholder,.feld textarea::placeholder{color:rgba(251,247,239,.34)}
+.feld input:focus,.feld textarea:focus,.feld select:focus{outline:none;border-color:var(--akzent-hell);background:rgba(251,247,239,.09)}
+.feld input.schief{border-color:#e2603c}
+.feld select option{background:var(--tief);color:var(--creme)}
+.honig{position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
+.hinweis{font-size:15px;color:rgba(251,247,239,.62);margin-top:4px}
+.hinweis.klein{font-size:13.5px;color:rgba(251,247,239,.45);max-width:52em}
+.hinweis.gut{color:var(--akzent-hell)}
+.hinweis.schlecht{color:#f0916f}
+.direkt{margin-top:22px;font-size:16.5px;color:rgba(251,247,239,.8)}
+.direkt a{color:var(--akzent-hell)}
+
+/* ---------- Fuß ---------- */
+.fuss{background:var(--tief);color:rgba(251,247,239,.6);padding:44px var(--rand);border-top:1px solid var(--linie-dunkel);
+  display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center;justify-content:space-between;font-size:14.5px}
+.fuss a{color:rgba(251,247,239,.8);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
+.fuss a:hover{border-color:var(--akzent-hell)}
+.fuss nav{display:flex;flex-wrap:wrap;gap:22px}
+
+/* ---------- Reveal (Progressive Enhancement) ---------- */
+.auf{opacity:1;transform:none}
+.js .auf{opacity:0;transform:translateY(22px);transition:opacity .9s var(--kurve),transform .9s var(--kurve)}
+.js .auf.da{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .auf{opacity:1!important;transform:none!important;transition:none}
+  html{scroll-behavior:auto}
+  .knopf,.karte{transition:none}
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width:900px){
+  .buehne{grid-template-columns:1fr;min-height:auto}
+  .buehne-bild{order:-1;height:52vh;min-height:320px}
+  .buehne-bild::after{background:linear-gradient(0deg,var(--tief) 0%,rgba(17,27,46,.3) 40%,transparent 78%)}
+  .buehne-text{padding:44px var(--rand) 70px}
+  .buehne-fuss{position:static;margin-top:34px;left:auto;bottom:auto}
+  .dreier,.zweier{grid-template-columns:1fr}
+  .weg{grid-template-columns:1fr;border-top:0}
+  .weg .halt{border-right:0;border-top:1px solid var(--linie-dunkel);padding:26px 0 6px}
+  .feld-paar{grid-template-columns:1fr}
+  .kopf{padding:12px var(--rand)}
+  .marke{height:26px;width:126px}
+  .kopf-knopf{font-size:13.5px;padding:8px 15px}
+}
+@media (max-width:520px){
+  body{font-size:16.5px}
+  .knopf{width:100%;justify-content:center}
+  .wahl{width:100%}
+  .wahl button{flex:1}
+}
+@media print{
+  .kopf,.knopf-reihe,.check,.bogen{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  .band,.buehne{padding:14pt 0;background:#fff!important;color:#000!important}
+  .band-tief h2,.band-tief h3,h1{color:#000!important}
+}
+</style>
+</head>
+<body>
+
+<header class="kopf" id="kopf">
+  <a class="marke" href="#oben" aria-label="AIVantum — zur Startseite">
+    <img class="marke-hell" src="assets/aivantum-lockup-creme.png" alt="AIVantum" width="972" height="200">
+    <img class="marke-dunkel" src="assets/aivantum-lockup-tinte.png" alt="" aria-hidden="true" width="972" height="200">
+  </a>
+  <a class="kopf-knopf" href="https://calendar.app.google/VPussJNynjUDuBJFA" target="_blank" rel="noopener">30 Minuten sprechen</a>
+</header>
+
+<main id="oben">
+
+  <!-- ============ BÜHNE ============ -->
+  <section class="buehne">
+    <div class="buehne-text">
+      <p class="augenbraue auf">KI-Kompetenz für Organisationen</p>
+      <h1 class="auf">Werkzeuge einführen<br>ist einfach.<br><em>Anders arbeiten nicht.</em></h1>
+      <p class="unterzeile auf">Die Lizenzen sind gekauft, die Schulung ist gelaufen — und am Montagmorgen arbeitet trotzdem jeder weiter wie vorher. Genau dort setzen wir an: erst messen, was in deiner Organisation heute wirklich passiert, dann befähigen, dann verankern.</p>
+      <div class="knopf-reihe auf">
+        <a class="knopf" href="https://calendar.app.google/VPussJNynjUDuBJFA" target="_blank" rel="noopener">Termin auswählen <span>&rarr;</span></a>
+        <a class="knopf stumm" href="#standort">Erst mal: wo stehst du?</a>
+      </div>
+      <div class="buehne-fuss auf"><i></i>Jay Manuzon · KI-Befähigung und systemische Organisationsentwicklung</div>
+    </div>
+    <div class="buehne-bild">
+      <img src="assets/portrait-jay.jpg" alt="Jay Manuzon, Gründer von AIVantum" fetchpriority="high" width="1050" height="1400">
+    </div>
+  </section>
+
+  <!-- ============ WARUM ============ -->
+  <section class="band band-creme" id="warum">
+    <div class="innen">
+      <p class="augenbraue auf">Warum</p>
+      <h2 class="auf" style="margin-top:20px;max-width:15em">KI-Projekte scheitern selten an der Technik.</h2>
+      <p class="blei auf">Sie scheitern daran, dass niemand geklärt hat, welche Arbeit künftig anders läuft — und wer dafür etwas abgeben muss. Das ist keine Technologiefrage. Das ist eine Führungs- und Organisationsfrage, die zufällig mit Software beginnt.</p>
+
+      <div class="zweier">
+        <div class="auf">
+          <h3>Was wir immer wieder sehen</h3>
+          <ul class="liste">
+            <li>Ein Werkzeug wird ausgerollt, die Nutzung versandet nach sechs Wochen.</li>
+            <li>Die Motivierten bauen im Stillen etwas, das niemand sonst kennt.</li>
+            <li>Führungskräfte sollen KI vorleben, ohne selbst je damit gearbeitet zu haben.</li>
+            <li>Es gibt eine Richtlinie, aber keine Antwort auf „darf ich das hier reinkopieren?".</li>
+            <li>Erfolg wird in Lizenzen gemessen, nicht in veränderter Arbeit.</li>
+          </ul>
+        </div>
+        <div class="auf">
+          <div class="leitsatz" style="margin-top:8px">
+            <p>Nicht das Werkzeug muss überzeugen. Die Arbeit muss sich verändern.</p>
+          </div>
+          <p class="blei" style="margin-top:26px;max-width:26em">Deshalb fangen wir nie mit einem Tool-Vergleich an, sondern mit einer Messung: Wo entsteht in deiner Organisation heute Wert, wo geht er verloren, und welche Ebene kann das überhaupt beeinflussen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WIE — EINE JOURNEY ============ -->
+  <section class="band band-tief" id="wie">
+    <div class="innen">
+      <p class="augenbraue auf">Wie</p>
+      <h2 class="auf" style="margin-top:20px;max-width:16em">Ein Weg in drei Bewegungen — keine vier Angebote nebeneinander.</h2>
+      <p class="blei auf">Diagnostik, Befähigung und Verankerung sind bei uns nicht drei Produkte, die man einzeln kaufen kann. Sie sind drei Abschnitte derselben Strecke. Du kannst an jedem Punkt einsteigen und an jedem Punkt aufhören — aber du weißt immer, wo du gerade bist. Und du weißt vorher, wie viel Zeit es von deinen Leuten verlangt: Die steht bei jeder Bewegung dabei, weil Zeit der Grund Nummer eins ist, aus dem solche Vorhaben liegen bleiben.</p>
+
+      <div class="weg">
+        <div class="halt auf">
+          <div class="zahl">01</div>
+          <h3>Messen</h3>
+          <p>Wir erheben, was heute tatsächlich passiert — von der Unternehmensführung über die Führungsebene bis in Produktion und Infrastruktur. Ergebnis ist kein Gefühl, sondern eine Karte mit ROI je Maßnahme.</p>
+          <div class="marke-zeit">2 bis 6 Wochen &middot; ca. 1 Std. je befragter Person</div>
+        </div>
+        <div class="halt auf">
+          <div class="zahl">02</div>
+          <h3>Befähigen</h3>
+          <p>Führungskräfte und Teams arbeiten an ihren echten Aufgaben, nicht an Beispielen aus dem Standardvideo. Wer nach dem Termin nichts anders macht, hat nichts gelernt — das ist unser Maßstab, nicht die Teilnehmerzahl.</p>
+          <div class="marke-zeit">Blöcke von je einem halben Tag</div>
+        </div>
+        <div class="halt auf">
+          <div class="zahl">03</div>
+          <h3>Verankern</h3>
+          <p>Neue Arbeitsweisen halten nur, wenn Rollen, Regeln und Erwartungen mitziehen. Hier arbeiten wir am System: Verantwortlichkeiten, Nutzungsregeln, Nachweise — und daran, dass niemand zurückfällt, sobald der Druck steigt.</p>
+          <div class="marke-zeit">1 Termin im Monat, 90 Minuten</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELBST-CHECK ============ -->
+  <section class="band band-tiefer" id="standort">
+    <div class="innen">
+      <p class="augenbraue auf">Standort</p>
+      <h2 class="auf" style="margin-top:20px;max-width:15em">Fünf Fragen, ehrlich beantwortet.</h2>
+      <p class="blei auf">Keine Mailadresse, keine Auswertung im Hintergrund, kein Lead-Formular dahinter. Die Einordnung passiert in deinem Browser und verlässt dein Gerät nicht. Sie ersetzt keine Diagnostik — sie sagt dir, ob ein Gespräch sich lohnt.</p>
+
+      <div class="check" id="check">
+        <div class="check-frage">
+          <p><b>1.</b> Es gibt eine schriftliche Regelung, was mit KI-Werkzeugen erlaubt ist und was nicht — und die Leute kennen sie.</p>
+          <div class="wahl" role="group" aria-label="Frage 1"><button type="button" data-f="0" data-w="1" aria-pressed="false">Ja</button><button type="button" data-f="0" data-w="0" aria-pressed="false">Nein</button></div>
+        </div>
+        <div class="check-frage">
+          <p><b>2.</b> Mindestens eine Führungskraft im Haus arbeitet selbst regelmäßig mit KI — nicht nur darüber.</p>
+          <div class="wahl" role="group" aria-label="Frage 2"><button type="button" data-f="1" data-w="1" aria-pressed="false">Ja</button><button type="button" data-f="1" data-w="0" aria-pressed="false">Nein</button></div>
+        </div>
+        <div class="check-frage">
+          <p><b>3.</b> Wir könnten benennen, welcher Arbeitsschritt durch KI konkret schneller oder besser geworden ist.</p>
+          <div class="wahl" role="group" aria-label="Frage 3"><button type="button" data-f="2" data-w="1" aria-pressed="false">Ja</button><button type="button" data-f="2" data-w="0" aria-pressed="false">Nein</button></div>
+        </div>
+        <div class="check-frage">
+          <p><b>4.</b> Wir wissen, welche KI-Systeme bei uns im Einsatz sind — auch die, die sich niemand offiziell genehmigt hat.</p>
+          <div class="wahl" role="group" aria-label="Frage 4"><button type="button" data-f="3" data-w="1" aria-pressed="false">Ja</button><button type="button" data-f="3" data-w="0" aria-pressed="false">Nein</button></div>
+        </div>
+        <div class="check-frage">
+          <p><b>5.</b> Für die KI-Kompetenzpflicht aus dem EU AI Act könnten wir einen Nachweis vorlegen, wenn jemand fragt.</p>
+          <div class="wahl" role="group" aria-label="Frage 5"><button type="button" data-f="4" data-w="1" aria-pressed="false">Ja</button><button type="button" data-f="4" data-w="0" aria-pressed="false">Nein</button></div>
+        </div>
+
+        <div class="check-ergebnis" id="check-ergebnis" hidden>
+          <h3 id="check-titel"></h3>
+          <p id="check-text"></p>
+          <div class="knopf-reihe" style="margin-top:24px">
+            <a class="knopf" href="https://calendar.app.google/VPussJNynjUDuBJFA" target="_blank" rel="noopener">Darüber sprechen <span>&rarr;</span></a>
+          </div>
+        </div>
+        <p class="check-hinweis">Ohne JavaScript bleibt die Einordnung aus — die Fragen selbst sind trotzdem die richtigen. Nimm sie mit ins Gespräch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WAS — DREI EINSTIEGE ============ -->
+  <section class="band band-creme" id="einstiege">
+    <div class="innen">
+      <p class="augenbraue auf">Was</p>
+      <h2 class="auf" style="margin-top:20px;max-width:14em">Drei Einstiege, je nachdem wo du stehst.</h2>
+      <p class="blei auf">Wir nennen es <em style="font-style:normal;color:var(--tinte)">AI Value Capture</em> — auf Deutsch: den Wert wirklich einsammeln, statt ihn nur zu vermuten. Preise stehen hier, weil du sie vor einem Gespräch wissen sollst und nicht danach. Alle Pakete vereinbaren wir im Gespräch, nicht über einen Warenkorb.</p>
+
+      <div class="dreier">
+        <article class="karte auf">
+          <div class="kopfzeile"><span class="chip">Für Organisationen</span></div>
+          <h3 style="margin-top:16px">AI Value Capture Diagnostik</h3>
+          <p>Mehrstufige Diagnostik der KI-Wertschöpfungspotenziale. Beginnt bei der Unternehmensführung und geht so tief, wie es nötig ist: über die Führungsebene bis in Produktion, Infrastruktur und Hardware. Mit ROI je Maßnahme.</p>
+          <div class="preis">
+            <b>ab 2.000 €</b><br>
+            Unternehmensführung 2.000 €<br>
+            + Führungskräfte 5.000 €<br>
+            + Produktion 10.000 €<br>
+            + Infrastruktur 12.000 €<br>
+            + Hardware 13.000 €
+          </div>
+        </article>
+
+        <article class="karte auf">
+          <div class="kopfzeile"><span class="chip">Für Führungsteams</span></div>
+          <h3 style="margin-top:16px">AI Value Capture für Führungskräfte</h3>
+          <p>Inklusive Diagnostik, für zwei bis zehn Führungskräfte, mit detailliertem Bericht und umsetzbaren Maßnahmen für das Führungsteam. Der übliche Einstieg, wenn die Richtung noch nicht gesetzt ist.</p>
+          <div class="preis">
+            <b>ab 800 €</b><br>
+            bis 2 Personen 800 €<br>
+            bis 5 Personen 2.000 €<br>
+            bis 8 Personen 3.200 €<br>
+            bis 10 Personen 4.000 €
+          </div>
+        </article>
+
+        <article class="karte markiert auf">
+          <div class="kopfzeile"><span class="chip akzent">Kostenfrei</span></div>
+          <h3 style="margin-top:16px">Initialgespräch</h3>
+          <p>30 Minuten. Erzähl kurz, was du erreichen willst und wo es hakt. Wenn wir nicht die Richtigen sind, sage ich das im Gespräch — und nenne dir, wen ich stattdessen kenne.</p>
+          <div class="preis">
+            <b>0 €</b><br>
+            30 Minuten, direkt im Kalender.
+            <div class="knopf-reihe" style="margin-top:20px">
+              <a class="knopf hell" href="https://calendar.app.google/VPussJNynjUDuBJFA" target="_blank" rel="noopener">Termin auswählen <span>&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WEITERE WEGE ============ -->
+  <section class="band band-creme-2" id="wege">
+    <div class="innen">
+      <p class="augenbraue auf">Außerdem</p>
+      <h2 class="auf" style="margin-top:20px;max-width:15em">Drei Wege für konkrete Anlässe.</h2>
+
+      <div class="dreier">
+        <article class="karte auf">
+          <div class="kopfzeile"><span class="chip">Monatlich</span></div>
+          <h3 style="margin-top:16px">Externer KI-Beauftragter</h3>
+          <p>Wir übernehmen die Rolle von außen: KI-Inventar, KI-Richtlinie, Schulungsnachweis nach Artikel 4, laufendes Monitoring und eine Quartals-Risikoprüfung. Ein bis zwei Stunden deiner Zeit im Monat, den Rest machen wir.</p>
+          <div class="preis"><b>ab 490 € / Monat</b><br>einmalig 990 € für Inventar und Erstaufsetzung.<br><span style="color:var(--tinte-weich);font-size:14px">Wir starten bewusst mit wenigen Unternehmen.</span></div>
+        </article>
+
+        <article class="karte auf">
+          <div class="kopfzeile"><span class="chip">Termin: 2. August</span></div>
+          <h3 style="margin-top:16px">AI-Act-Fahrplan</h3>
+          <p>Artikel 4 zur KI-Kompetenz gilt seit dem 2. Februar 2025. Am 2. August 2026 kommen die Transparenz- und Kennzeichnungspflichten dazu. Wir haben daraus ein Paket gemacht: Inventar, Befähigung und Kennzeichnung in einem Durchgang.</p>
+          <div class="preis">
+            Wo du stehst, sagt dir der kostenlose Quick-Check in fünf Fragen.
+            <div class="knopf-reihe" style="margin-top:20px">
+              <a class="knopf hell" href="https://ai-act.aivantum.com" target="_blank" rel="noopener">Zum AI-Act-Fahrplan <span>&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="karte auf">
+          <div class="kopfzeile"><span class="chip">Im Aufbau</span></div>
+          <h3 style="margin-top:16px">Sanierungsbericht (IBR)</h3>
+          <p>Wenn die Bank vor der Weiterfinanzierung einen unabhängigen Blick verlangt: Wir haben die Rechenarbeit dahinter automatisiert — verzahnte Planung, 13-Wochen-Liquidität, Kennzahlen, Szenarien, Berichtsentwurf. Prüfung, Urteil und Unterschrift liegen bei einem Wirtschaftsprüfer.</p>
+          <div class="preis"><span style="color:var(--tinte-weich);font-size:15px">Diese Zusammenarbeit bauen wir gerade auf. Wenn du in dieser Situation bist, sprich uns an — wir versprechen nichts, was noch nicht steht.</span></div>
+        </article>
+      </div>
+      <p class="hinweis klein" style="color:var(--tinte-weich);margin-top:28px;max-width:60em">Organisatorische Compliance-Vorbereitung und betriebswirtschaftliche Aufbereitung. Keine Rechtsberatung, keine Feststellung der Insolvenzreife, kein Testat — das gehört zu Rechtsanwalt, Steuerberater oder Wirtschaftsprüfer.</p>
+    </div>
+  </section>
+
+  <!-- ============ FÜR WEN ============ -->
+  <section class="band band-creme" id="fuer-wen">
+    <div class="innen">
+      <p class="augenbraue auf">Für wen</p>
+      <h2 class="auf" style="margin-top:20px;max-width:15em">Wir passen nicht überall hin.</h2>
+      <div class="zweier">
+        <div class="auf">
+          <h3>Gut, wenn …</h3>
+          <ul class="liste">
+            <li>ihr zwischen 20 und 500 Menschen seid und die Wege noch kurz sind.</li>
+            <li>jemand in der Führung das Thema wirklich will, nicht nur delegiert.</li>
+            <li>ihr messbare Veränderung wollt und bereit seid, sie auch zu messen.</li>
+            <li>es schon erste KI-Versuche gab — auch gescheiterte. Besonders dann.</li>
+          </ul>
+        </div>
+        <div class="auf">
+          <h3>Eher nicht, wenn …</h3>
+          <ul class="liste nein">
+            <li>ihr eine Software sucht. Wir bauen und verkaufen keine.</li>
+            <li>ein Nachweis für die Akte reicht und sich sonst nichts ändern soll.</li>
+            <li>die Entscheidung schon gefallen ist und nur noch Bestätigung fehlt.</li>
+            <li>es um reine Programmier- oder Infrastruktur-Umsetzung geht.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WER ============ -->
+  <section class="band band-tief" id="wer">
+    <div class="innen">
+      <figure class="bild-band auf">
+        <img src="assets/jay-whiteboard.jpg" alt="Jay Manuzon an einem Whiteboard: ein Kreis mit den Feldern Goals, Relationships und Content, daneben schreibt er Projects an." loading="lazy" width="2200" height="880">
+        <span class="schleier" aria-hidden="true"></span>
+        <figcaption>Aus einem Workshop. Erst das Feld sortieren, dann die Projekte danebenschreiben — nicht umgekehrt.</figcaption>
+      </figure>
+      <p class="augenbraue auf">Wer</p>
+      <h2 class="auf" style="margin-top:20px;max-width:16em">Ein Ingenieur, der gelernt hat, dass Technik selten das Problem ist.</h2>
+      <div class="zweier">
+        <div class="auf">
+          <p class="blei" style="max-width:none">Ich bin Jay Manuzon. Ausgebildet als Wirtschaftsingenieur, seit Jahren in Organisationen unterwegs, in denen Technologie eingeführt wurde und Menschen damit allein gelassen wurden. Systemischer Coach und Organisationsentwickler — und jemand, der KI täglich selbst benutzt, nicht nur bespricht.</p>
+          <p class="blei" style="max-width:none">Deshalb rede ich nicht über Werkzeuge, die ich nie angefasst habe, und verkaufe keine Transformation, die niemand tragen will. Wir messen zuerst. Danach reden wir über Maßnahmen.</p>
+        </div>
+        <div class="auf">
+          <div class="leitsatz" style="margin-top:8px"><p>Erst wissen, dann handeln. In dieser Reihenfolge, immer.</p></div>
+          <ul class="liste" style="margin-top:28px">
+            <li>Systemische Coaching- und Organisationsentwicklungs-Ausbildung</li>
+            <li>Wirtschaftsingenieurwesen, Schwerpunkt Software Engineering</li>
+            <li>Langjährige Praxis in Konzern-Transformationsvorhaben</li>
+            <li>Arbeitssprachen Deutsch und Englisch</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EINWÄNDE ============ -->
+  <section class="band band-creme" id="einwaende">
+    <div class="innen eng">
+      <p class="augenbraue auf">Bedenken</p>
+      <h2 class="auf" style="margin-top:20px">Was an dieser Stelle meistens kommt.</h2>
+      <div style="margin-top:38px" class="auf">
+        <details class="einwand">
+          <summary>Wir sind zu klein für so etwas.</summary>
+          <p>Kleiner heißt in der Regel schneller. Bei zwanzig Leuten kannst du in einem Nachmittag klären, was in einem Konzern ein Quartal braucht. Der Einstieg für Führungsteams beginnt bei 800 € und ist genau für diese Größe gedacht.</p>
+        </details>
+        <details class="einwand">
+          <summary>Wir haben keine IT-Abteilung.</summary>
+          <p>Braucht es für den Anfang auch nicht. Die ersten zwei Bewegungen — messen und befähigen — laufen ohne eine einzige Systemänderung. Erst wenn es an Infrastruktur geht, brauchst du jemanden, der Zugriff hat. Bis dahin sind wir längst an einem Punkt, an dem klar ist, ob sich das lohnt.</p>
+        </details>
+        <details class="einwand">
+          <summary>Meine Leute haben Angst, dass ihr Job wegrationalisiert wird.</summary>
+          <p>Das ist die häufigste Sorge im Haus, und sie verschwindet nicht dadurch, dass man sie nicht anspricht. Wir arbeiten offen damit: In der Befähigung sind es die Mitarbeitenden selbst, die entscheiden, welche ihrer Aufgaben sie abgeben wollen — nicht wir und nicht die Führung. Wer erlebt, dass er die lästigen Teile loswird und nicht die interessanten, hört auf, sich zu wehren. Wo Stellen tatsächlich zur Debatte stehen, sagen wir es der Führung deutlich, statt es hinter „Effizienz" zu verstecken.</p>
+        </details>
+        <details class="einwand">
+          <summary>Kriegen wir am Ende wieder nur einen Foliensatz?</summary>
+          <p>Der Vorwurf ist berechtigt, er ist der häufigste gegen KI-Berater. Deshalb: Aus der Diagnostik kommt eine Maßnahmenkarte mit ROI je Position, nicht eine Empfehlung zur Haltung. Aus der Befähigung kommt etwas, das am nächsten Tag im Betrieb läuft, weil an echten Aufgaben gearbeitet wurde. Wenn du nach einem Termin nichts anders machst, war der Termin schlecht — das ist unser Maßstab.</p>
+        </details>
+        <details class="einwand">
+          <summary>Und der Datenschutz? Und der EU AI Act?</summary>
+          <p>Beides ist Teil der Arbeit, nicht ein Anhang. Wir erstellen ein Inventar der tatsächlich genutzten Systeme, eine Nutzungsregelung, die Menschen auch lesen, und einen dokumentierten Schulungsnachweis nach Artikel 4. Die Regelung arbeitet mit einem Ampelmodell statt mit einem Pauschalverbot — grün, gelb, rot je Datenart. Pauschalverbote werden umgangen, Ampeln werden befolgt. Was wir nicht tun: rechtsverbindlich einordnen. Das gehört zu deinem Rechtsbeistand, und wir sagen dir, wann er dran ist.</p>
+        </details>
+        <details class="einwand">
+          <summary>Wir hatten schon eine Schulung. Es hat nichts gebracht.</summary>
+          <p>Das ist der häufigste Ausgangspunkt, und es ist meistens kein Fehler der Schulung. Ein Training verändert Verhalten nur, wenn danach jemand die Rahmenbedingungen ändert: Erwartungen, Zeit, Rollen. Genau das ist die dritte Bewegung, und die meisten Anbieter hören vorher auf.</p>
+        </details>
+        <details class="einwand">
+          <summary>Woher weiß ich, dass ihr das könnt?</summary>
+          <p>Ehrlich: An dieser Stelle stünden bei den meisten Anbietern Logos und Fallzahlen. Bei uns nicht, weil die neuen Angebote genau das noch nicht haben. Was du stattdessen bekommst, ist ein kostenfreies Gespräch, in dem du an der Qualität der Fragen erkennst, ob wir das Feld verstehen. Wenn nicht, hast du dreißig Minuten verloren und ich meine Zeit.</p>
+        </details>
+        <details class="einwand">
+          <summary>Was kostet das am Ende wirklich?</summary>
+          <p>Die Zahlen oben sind die echten. Was dazukommt, sind Reisekosten bei Präsenzterminen und Umsatzsteuer. Was nicht dazukommt: Lizenzgebühren, Erfolgsbeteiligungen oder ein Rahmenvertrag, den du nicht wolltest.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NACH DER BUCHUNG ============ -->
+  <section class="band band-creme-2" id="danach">
+    <div class="innen">
+      <p class="augenbraue auf">Ablauf</p>
+      <h2 class="auf" style="margin-top:20px;max-width:15em">Was passiert, wenn du auf den Termin klickst.</h2>
+      <div class="dreier">
+        <div class="auf">
+          <div class="zahl" style="font-family:var(--serif);font-size:clamp(46px,5vw,78px);line-height:.9;color:var(--akzent)">01</div>
+          <h3 style="margin-top:12px">Du wählst einen Slot</h3>
+          <p style="margin-top:12px;color:var(--tinte-weich);font-size:16px">Direkt in meinem Kalender, kein Zwischenformular. Du bekommst sofort eine Bestätigung mit Videolink. Vorbereitung brauchst du keine.</p>
+        </div>
+        <div class="auf">
+          <div class="zahl" style="font-family:var(--serif);font-size:clamp(46px,5vw,78px);line-height:.9;color:var(--akzent)">02</div>
+          <h3 style="margin-top:12px">Wir sprechen 30 Minuten</h3>
+          <p style="margin-top:12px;color:var(--tinte-weich);font-size:16px">Ich frage, du erzählst. Kein Pitch, keine Folien. Am Ende sage ich dir, was ich sehe — auch wenn das heißt, dass du uns nicht brauchst.</p>
+        </div>
+        <div class="auf">
+          <div class="zahl" style="font-family:var(--serif);font-size:clamp(46px,5vw,78px);line-height:.9;color:var(--akzent)">03</div>
+          <h3 style="margin-top:12px">Du bekommst es schriftlich</h3>
+          <p style="margin-top:12px;color:var(--tinte-weich);font-size:16px">Innerhalb von zwei Werktagen eine Seite: was ich verstanden habe, was ich vorschlage, was es kostet. Ohne Nachfassen, ohne Verkaufsstrecke.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section class="band band-tief" id="kontakt">
+    <div class="innen">
+      <p class="augenbraue auf">Anfangen</p>
+      <h2 class="auf" style="margin-top:20px;max-width:14em">Zwei Wege. Such dir einen aus.</h2>
+      <p class="blei auf">Wenn du weißt, was du willst: nimm den Kalender. Wenn du erst sortieren möchtest: schreib mir. Beides landet bei mir persönlich.</p>
+
+      <div class="knopf-reihe auf" style="margin-top:34px">
+        <a class="knopf" href="https://calendar.app.google/VPussJNynjUDuBJFA" target="_blank" rel="noopener">30 Minuten im Kalender <span>&rarr;</span></a>
+      </div>
+
+      <form class="bogen auf" id="bogen" novalidate>
+        <div class="feld-paar">
+          <label class="feld">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" placeholder="optional">
+          </label>
+          <label class="feld">
+            <span>E-Mail <b>*</b></span>
+            <input type="email" name="email" autocomplete="email" required placeholder="damit ich antworten kann">
+          </label>
+        </div>
+        <div class="feld-paar">
+          <label class="feld">
+            <span>Organisation</span>
+            <input type="text" name="firma" autocomplete="organization" placeholder="optional">
+          </label>
+          <label class="feld">
+            <span>Worum geht es?</span>
+            <select name="thema">
+              <option value="">bitte wählen</option>
+              <option>Diagnostik für die Organisation</option>
+              <option>Befähigung des Führungsteams</option>
+              <option>Externer KI-Beauftragter</option>
+              <option>AI-Act-Fahrplan</option>
+              <option>Sanierungsbericht / IBR</option>
+              <option>Weiß ich noch nicht</option>
+            </select>
+          </label>
+        </div>
+        <label class="feld">
+          <span>Was steht bei euch an?</span>
+          <textarea name="msg" rows="4" placeholder="Ein paar Sätze genügen. Was gerade ansteht, reicht völlig."></textarea>
+        </label>
+
+        <div class="honig" aria-hidden="true">
+          <label>Bitte nicht ausfüllen<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <button class="knopf" type="submit" id="senden">Anfrage senden <span>&rarr;</span></button>
+        <p class="hinweis" id="bogen-status" role="status" aria-live="polite"></p>
+        <p class="hinweis klein">Deine Angaben nutze ich ausschließlich für die Rückmeldung und gebe sie nicht weiter. Kein Newsletter. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+      </form>
+
+      <noscript>
+        <p class="direkt">Für das Formular wird JavaScript benötigt. Schreib mir stattdessen direkt an <a href="mailto:jay@aivantum.com">jay@aivantum.com</a> — oder wähle gleich einen <a href="https://calendar.app.google/VPussJNynjUDuBJFA">Termin im Kalender</a>.</p>
+      </noscript>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div>© 2026 AIVantum · Jay Manuzon · <a href="mailto:jay@aivantum.com">jay@aivantum.com</a></div>
+  <nav>
+    <a href="https://ai-act.aivantum.com" target="_blank" rel="noopener">AI-Act-Fahrplan</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </nav>
+</footer>
+
+<script>
+/* Progressive Enhancement: Der gesamte Kerninhalt oben steht statisch im HTML.
+   Dieses Skript fügt nur hinzu — Reveal, Kopfleiste, Selbst-Check, Formularversand.
+   Ohne JavaScript bleibt die Seite vollständig lesbar und der Kalender-Link nutzbar. */
+(function () {
+  "use strict";
+  var doc = document.documentElement;
+  doc.className += " js";
+
+  /* ---- Reveal beim Scrollen ---- */
+  var aufs = document.querySelectorAll(".auf");
+  if ("IntersectionObserver" in window) {
+    var beo = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("da"); beo.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    Array.prototype.forEach.call(aufs, function (el) { beo.observe(el); });
+  } else {
+    Array.prototype.forEach.call(aufs, function (el) { el.classList.add("da"); });
+  }
+
+  /* ---- Kopfleiste wird fest, sobald die Bühne durch ist ---- */
+  var kopf = document.getElementById("kopf");
+  var buehne = document.querySelector(".buehne");
+  function kopfPruefen() {
+    if (!kopf || !buehne) return;
+    var grenze = buehne.offsetHeight - 90;
+    if (window.scrollY > grenze) kopf.classList.add("fest");
+    else kopf.classList.remove("fest");
+  }
+  var warte = false;
+  window.addEventListener("scroll", function () {
+    if (warte) return;
+    warte = true;
+    window.requestAnimationFrame(function () { kopfPruefen(); warte = false; });
+  }, { passive: true });
+  kopfPruefen();
+
+  /* ---- Selbst-Check: rein lokal, nichts verlässt das Gerät ---- */
+  var check = document.getElementById("check");
+  if (check) {
+    var antworten = [null, null, null, null, null];
+    var kasten = document.getElementById("check-ergebnis");
+    var titel = document.getElementById("check-titel");
+    var text = document.getElementById("check-text");
+
+    var stufen = [
+      { ab: 0, titel: "Am Anfang — und das ist ehrlich gesagt der Normalfall.",
+        text: "Bei dir ist noch nichts geregelt, gemessen oder verankert. Das ist kein Versäumnis, sondern der Zustand der meisten Häuser. Der günstigste erste Schritt ist die Befähigung des Führungsteams: zwei bis zehn Personen, ab 800 €, inklusive Diagnostik. Danach weißt du, worüber ihr überhaupt entscheiden müsst." },
+      { ab: 2, titel: "Erste Bewegung da, aber sie hängt an Einzelnen.",
+        text: "Ein paar Dinge laufen, meist getragen von wenigen Motivierten. Genau hier versandet es erfahrungsgemäß, sobald diese Personen im Urlaub sind. Was jetzt trägt, ist die Diagnostik über mehrere Ebenen: sie zeigt, wo Wert entsteht und was davon vom System und nicht von Personen abhängt." },
+      { ab: 4, titel: "Weit vorne — bei dir geht es ums Absichern und Skalieren.",
+        text: "Ihr habt Regeln, Praxis und Nachweise. Interessant wird für dich weniger der Einstieg als die Verankerung und der formale Teil: Inventar, Kennzeichnungspflicht ab dem 2. August 2026, laufendes Monitoring. Dafür gibt es den externen KI-Beauftragten ab 490 € im Monat." }
+    ];
+
+    function auswerten() {
+      var beantwortet = antworten.filter(function (a) { return a !== null; }).length;
+      if (beantwortet < 5) return;
+      var punkte = antworten.reduce(function (s, a) { return s + a; }, 0);
+      var stufe = stufen[0];
+      for (var i = 0; i < stufen.length; i++) { if (punkte >= stufen[i].ab) stufe = stufen[i]; }
+      titel.textContent = stufe.titel + " (" + punkte + " von 5)";
+      text.textContent = stufe.text;
+      kasten.hidden = false;
+    }
+
+    check.addEventListener("click", function (ev) {
+      var knopf = ev.target.closest ? ev.target.closest("button[data-f]") : null;
+      if (!knopf) return;
+      var frage = parseInt(knopf.getAttribute("data-f"), 10);
+      var wert = parseInt(knopf.getAttribute("data-w"), 10);
+      var gruppe = knopf.parentNode.querySelectorAll("button");
+      Array.prototype.forEach.call(gruppe, function (b) { b.setAttribute("aria-pressed", "false"); });
+      knopf.setAttribute("aria-pressed", "true");
+      antworten[frage] = wert;
+      auswerten();
+    });
+  }
+
+  /* ---- Anfrage-Formular ---- */
+  var ENDPUNKT = "https://aivantum-check.aivantum.workers.dev/kontakt";
+  var bogen = document.getElementById("bogen");
+  if (!bogen) return;
+  var status = document.getElementById("bogen-status");
+  var knopfSenden = document.getElementById("senden");
+
+  function sag(txt, art) {
+    status.textContent = txt;
+    status.className = "hinweis" + (art ? " " + art : "");
+  }
+  function gueltig(feld) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(feld.value.trim());
+  }
+
+  bogen.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var mail = bogen.elements["email"];
+    mail.classList.remove("schief");
+
+    if (!gueltig(mail)) {
+      mail.classList.add("schief"); mail.focus();
+      sag("Bitte eine gültige E-Mail-Adresse angeben — sonst kann ich nicht antworten.", "schlecht");
+      return;
+    }
+
+    var thema = bogen.elements["thema"].value;
+    var freitext = bogen.elements["msg"].value.trim();
+
+    var daten = {
+      art: "aivantum",
+      name: bogen.elements["name"].value.trim(),
+      email: mail.value.trim(),
+      firma: bogen.elements["firma"].value.trim(),
+      thema: thema,
+      msg: (thema ? "Thema: " + thema + "\n\n" : "") + freitext,
+      website: bogen.elements["website"].value,
+      source: "aivantum.com"
+    };
+
+    knopfSenden.disabled = true;
+    sag("Wird gesendet …");
+
+    fetch(ENDPUNKT, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(daten)
+    })
+    .then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; });
+    })
+    .then(function (res) {
+      if (res.ok && res.j && res.j.ok) {
+        bogen.reset();
+        sag("Angekommen. Du bekommst gleich eine Bestätigung per Mail — ich melde mich in der Regel innerhalb von zwei Werktagen.", "gut");
+        knopfSenden.textContent = "Danke";
+        return;
+      }
+      knopfSenden.disabled = false;
+      var code = (res.j && res.j.error) || "";
+      if (code === "rate_limited") {
+        sag("Es kamen gerade viele Anfragen von dieser Verbindung. Bitte in einer Stunde nochmal — oder direkt an jay@aivantum.com.", "schlecht");
+      } else if (code === "email_invalid") {
+        mail.classList.add("schief");
+        sag("Diese E-Mail-Adresse sieht nicht gültig aus.", "schlecht");
+      } else {
+        sag("Das Senden hat nicht geklappt. Schreib mir bitte direkt an jay@aivantum.com — oder wähle gleich einen Termin im Kalender.", "schlecht");
+      }
+    })
+    .catch(function () {
+      knopfSenden.disabled = false;
+      sag("Keine Verbindung zum Server. Schreib mir bitte direkt an jay@aivantum.com — oder wähle gleich einen Termin im Kalender.", "schlecht");
+    });
+  });
+})();
+</script>
+</body>
+</html>
