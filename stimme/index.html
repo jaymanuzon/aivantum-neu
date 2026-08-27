@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deine Stimme · AIVantum</title>
+<meta name="description" content="Referenzstimme für Jay Manuzon: fünf geführte Fragen, optional ein kurzes Video. Du entscheidest, was davon erscheint.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../assets/favicon.png">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 600;font-display:swap;src:url(../fonts/cormorant-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400 600;font-display:swap;src:url(../fonts/cormorant-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url(../fonts/hanken-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --tief:#111b2e;--tief-2:#1a2942;--creme:#fbf7ef;--creme-2:#f2ecdf;--tinte:#16233c;--tinte-weich:#5a6580;
+  --akzent:#1a6259;--akzent-hell:#4aa79a;--linie:#e6dcc8;--warn:#b3541e;--warn-soft:#fbeee4;--ok:#2e7d4f;--ok-soft:#e4f2ea;
+  --font-body:'Hanken Grotesk',system-ui,-apple-system,sans-serif;--font-display:'Cormorant Garamond',Georgia,serif;
+  --r-sm:10px;--r-md:16px;--r-lg:22px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--sp-7:48px;
+  --shadow:0 1px 2px rgba(24,43,75,.05),0 10px 26px -16px rgba(24,43,75,.18);--t-hover:180ms ease-out;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--creme);color:var(--tinte);font-family:var(--font-body);font-size:17px;line-height:1.6}
+a{color:var(--akzent)}
+.kopf{background:var(--tief);color:var(--creme);padding:28px 20px 40px}
+.kopf .innen,.innen{max-width:760px;margin:0 auto}
+.augenbraue{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--akzent-hell);margin:0 0 14px}
+.kopf h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,6vw,50px);line-height:1.08;margin:0 0 16px}
+.kopf h1 em{font-style:italic;color:var(--akzent-hell)}
+.kopf p{color:rgba(251,247,239,.82);max-width:34em;margin:0 0 10px}
+.kopf .klein{font-size:.9rem;color:rgba(251,247,239,.62)}
+main{padding:12px 20px 60px}
+section.karte{background:#fff;border:1px solid var(--linie);border-radius:var(--r-lg);padding:26px 24px;margin:22px auto;max-width:760px;box-shadow:var(--shadow)}
+section.karte h2{font-family:var(--font-display);font-weight:500;font-size:1.7rem;margin:0 0 6px;line-height:1.15}
+.hinweis{color:var(--tinte-weich);font-size:.95rem;margin:0 0 18px}
+.frage{margin:18px 0}
+.frage label{display:block;font-weight:600;margin-bottom:6px}
+.frage .neben{font-weight:400;color:var(--tinte-weich);font-size:.9rem}
+textarea,input[type=text],input[type=email],select{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1px solid var(--linie);border-radius:var(--r-sm);background:var(--creme);color:var(--tinte)}
+textarea{min-height:96px;resize:vertical}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--akzent-hell);outline-offset:1px;background:#fff}
+.paar{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.paar{grid-template-columns:1fr}}
+.knopf{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:600;padding:13px 20px;border-radius:999px;border:0;background:var(--akzent);color:#fff;cursor:pointer;transition:transform var(--t-hover),background var(--t-hover);min-height:48px}
+.knopf:hover{background:#155049;transform:translateY(-1px)}
+.knopf.stumm{background:transparent;color:var(--tinte);border:1px solid var(--linie)}
+.knopf.stumm:hover{background:var(--creme-2)}
+.knopf[disabled]{opacity:.5;cursor:default;transform:none}
+.knopf.gross{width:100%;justify-content:center;font-size:1.05rem;padding:16px 22px}
+.reihe{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.callout{border-left:4px solid var(--akzent);background:var(--creme-2);padding:12px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:.95rem;line-height:1.55;margin:14px 0}
+.callout.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.callout.ok{border-left-color:var(--ok);background:var(--ok-soft)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em;background:var(--creme-2);color:var(--akzent)}
+.wahl{display:flex;flex-direction:column;gap:10px;margin:8px 0 4px}
+.wahl label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--linie);border-radius:var(--r-sm);background:var(--creme);cursor:pointer}
+.wahl input{margin-top:4px;width:20px;height:20px;flex:0 0 20px;accent-color:var(--akzent)}
+.wahl small{display:block;color:var(--tinte-weich);font-size:.88rem}
+/* Video */
+.video-buehne{position:relative;background:var(--tief-2);border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;max-height:420px;display:flex;align-items:center;justify-content:center;color:rgba(251,247,239,.7);font-size:.95rem;text-align:center;padding:16px}
+.video-buehne video{width:100%;height:100%;object-fit:cover;display:none;background:#000}
+.video-buehne .ueberlage{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(17,27,46,.85));color:var(--creme);padding:14px 16px;font-size:.95rem;display:none;text-align:left}
+.video-buehne .uhr{position:absolute;top:12px;right:14px;background:rgba(17,27,46,.75);color:#fff;font-weight:700;padding:4px 10px;border-radius:999px;font-size:.85rem;display:none}
+.video-buehne .uhr.rot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#e2603c;margin-right:6px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+.leitfaden{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+@media (max-width:560px){.leitfaden{grid-template-columns:1fr}}
+.leitfaden div{background:var(--creme-2);border-radius:var(--r-sm);padding:10px 12px;font-size:.9rem}
+.leitfaden b{display:block;color:var(--akzent);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.fortschritt{height:6px;background:var(--creme-2);border-radius:999px;overflow:hidden;margin-top:12px;display:none}
+.fortschritt i{display:block;height:100%;width:0;background:var(--akzent-hell);transition:width .3s}
+.status{font-size:.92rem;color:var(--tinte-weich);margin-top:10px;min-height:1.4em}
+.status.ok{color:var(--ok)} .status.fehler{color:var(--warn)}
+.fuss{max-width:760px;margin:30px auto 0;padding:0 20px;font-size:.88rem;color:var(--tinte-weich);display:flex;flex-wrap:wrap;gap:8px 18px}
+.danke{display:none}
+.versteckt{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+noscript .callout{margin-top:18px}
+@media print{.kopf{background:#fff;color:var(--tinte)} .knopf,.video-buehne{display:none}}
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="innen">
+    <p class="augenbraue">AIVantum · Referenzstimme</p>
+    <h1>Deine Stimme,<br><em>in deinen Worten.</em></h1>
+    <p>Wir haben zusammen gearbeitet — an einem Team, an einer Frage, an einem Stück KI, das plötzlich benutzt wurde. Ich mache mich damit selbstständig, und andere möchten vorher wissen, was sie erwarten dürfen. Dafür hilft nichts so sehr wie deine Sicht.</p>
+    <p class="klein">Fünf Fragen, zwei bis vier Sätze je Antwort reichen. Optional ein Video von 60 bis 90 Sekunden. Was davon erscheint und unter welchem Namen, entscheidest du unten — und kannst es jederzeit widerrufen.</p>
+  </div>
+</header>
+
+<main>
+<form id="bogen" novalidate>
+
+  <section class="karte" id="fragen">
+    <span class="badge">Schritt 1</span>
+    <h2>Fünf Fragen</h2>
+    <p class="hinweis">Antworte so, wie du es einem Kollegen erzählen würdest. Nichts muss glänzen.</p>
+
+    <div class="frage">
+      <label for="q1">1 · Wo standet ihr, als wir angefangen haben? <span class="neben">Situation, Anlass, was nicht funktionierte.</span></label>
+      <textarea id="q1" name="q1" maxlength="3000" placeholder="Zum Beispiel: Die Lizenzen waren da, aber im Team nutzte sie niemand …"></textarea>
+    </div>
+    <div class="frage">
+      <label for="q2">2 · Was hat Jay konkret gemacht — und was war daran anders als sonst?</label>
+      <textarea id="q2" name="q2" maxlength="3000"></textarea>
+    </div>
+    <div class="frage">
+      <label for="q3">3 · Was ist seitdem anders? <span class="neben">Bei dir, im Team, im Ergebnis. Gern mit einem Beispiel.</span></label>
+      <textarea id="q3" name="q3" maxlength="3000"></textarea>
+    </div>
+    <div class="frage">
+      <label for="q4">4 · Woran hing es bei euch: am Wollen oder am Können? <span class="neben">Und was hat sich davon gelöst. Optional.</span></label>
+      <textarea id="q4" name="q4" maxlength="3000"></textarea>
+    </div>
+    <div class="frage">
+      <label for="q5">5 · Ein Satz für jemanden, der überlegt, mit Jay zu arbeiten.</label>
+      <textarea id="q5" name="q5" maxlength="600" placeholder="Wenn du …, dann …"></textarea>
+    </div>
+  </section>
+
+  <section class="karte" id="video">
+    <span class="badge">Schritt 2 · optional</span>
+    <h2>Ein kurzes Video</h2>
+    <p class="hinweis">60 bis 90 Sekunden, Handy oder Tablet reicht. Sag in deinen Worten, was du oben geschrieben hast — die drei Stichworte unten helfen. Du kannst so oft neu aufnehmen, wie du willst.</p>
+
+    <div class="leitfaden">
+      <div><b>Anfang</b>Wer du bist, in welcher Rolle wir gearbeitet haben.</div>
+      <div><b>Mitte</b>Was Jay gemacht hat und was danach anders war.</div>
+      <div><b>Schluss</b>Dein Satz an jemanden, der überlegt.</div>
+    </div>
+
+    <div class="video-buehne" id="buehne">
+      <span id="buehne-text">Kamera ist aus. Tippe auf „Kamera an", um zu starten — oder lade unten eine vorhandene Aufnahme hoch.</span>
+      <video id="vorschau" playsinline muted autoplay></video>
+      <video id="wiedergabe" playsinline controls></video>
+      <span class="uhr" id="uhr">0:00</span>
+      <div class="ueberlage" id="ueberlage"></div>
+    </div>
+
+    <div class="reihe">
+      <button type="button" class="knopf stumm" id="kamera-an">Kamera an</button>
+      <button type="button" class="knopf" id="aufnahme" disabled>Aufnahme starten</button>
+      <button type="button" class="knopf stumm" id="verwerfen" disabled>Verwerfen</button>
+      <label class="knopf stumm" for="datei">Vorhandenes Video wählen</label>
+      <input type="file" id="datei" accept="video/*" class="versteckt">
+    </div>
+    <div class="fortschritt" id="fortschritt"><i></i></div>
+    <p class="status" id="video-status"></p>
+    <div class="callout" id="video-hinweis">Das Video wird erst mit dem Absenden am Ende hochgeladen (bis 90 MB). Wenn das nicht klappt: schick es mir einfach per Mail an <a href="mailto:jay@aivantum.com?subject=Referenzstimme%20Video">jay@aivantum.com</a> oder per WhatsApp — das ist genauso gut.</div>
+    <input type="hidden" name="videoKey" id="videoKey">
+  </section>
+
+  <section class="karte" id="angaben">
+    <span class="badge">Schritt 3</span>
+    <h2>Wer du bist — und was erscheinen darf</h2>
+    <p class="hinweis">Deine E-Mail brauche ich nur, um dir eine Bestätigung zu schicken und dich zu erreichen, falls ich etwas kürze. Sie erscheint nirgends.</p>
+
+    <div class="paar">
+      <div class="frage"><label for="name">Name</label><input type="text" id="name" name="name" autocomplete="name" maxlength="80"></div>
+      <div class="frage"><label for="email">E-Mail <span class="neben">(Pflicht)</span></label><input type="email" id="email" name="email" autocomplete="email" required maxlength="160"></div>
+    </div>
+    <div class="paar">
+      <div class="frage"><label for="rolle">Rolle / Funktion</label><input type="text" id="rolle" name="rolle" maxlength="120" placeholder="z. B. Bereichsleiter IT"></div>
+      <div class="frage"><label for="firma">Organisation</label><input type="text" id="firma" name="firma" autocomplete="organization" maxlength="120"></div>
+    </div>
+
+    <div class="frage">
+      <label>Unter welchem Namen darf deine Stimme erscheinen?</label>
+      <div class="wahl">
+        <label><input type="radio" name="namensform" value="voll"><span>Mit Vor- und Nachname, Rolle und Organisation<small>Die stärkste Form — und die, die du am ehesten mit deinem Arbeitgeber abstimmen willst.</small></span></label>
+        <label><input type="radio" name="namensform" value="vorname" checked><span>Nur Vorname und Rolle<small>Zum Beispiel „Marco, Bereichsleiter in einem DAX-40-Konzern".</small></span></label>
+        <label><input type="radio" name="namensform" value="anonym"><span>Ohne Namen, nur Rolle und Branche<small>Zum Beispiel „Führungskraft, Energiewirtschaft".</small></span></label>
+      </div>
+    </div>
+
+    <div class="frage">
+      <label>Was darf ich verwenden?</label>
+      <div class="wahl">
+        <label><input type="checkbox" name="freigabe_text" value="1" checked><span>Meine Antworten dürfen als Zitat auf aivantum.com und coachjay.de sowie in Unterlagen von Jay erscheinen.<small>Gekürzt, aber nie sinnentstellt. Die Fassung bekommst du vorher zu sehen.</small></span></label>
+        <label><input type="checkbox" name="freigabe_video" value="1"><span>Mein Video darf dort erscheinen.<small>Nur, wenn du eines aufgenommen hast. Ohne Haken bleibt es intern bei Jay.</small></span></label>
+        <label><input type="checkbox" name="einwilligung" value="1" required><span>Ich bin einverstanden, dass Jay Manuzon (AIVantum) meine Angaben und ggf. mein Video zu diesem Zweck speichert und verarbeitet.<small>Freiwillig, jederzeit widerrufbar per Mail an jay@aivantum.com. Details in der <a href="../datenschutz.html#stimmen" target="_blank" rel="noopener">Datenschutzerklärung</a>.</small></span></label>
+      </div>
+    </div>
+
+    <div class="versteckt" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+    <button type="submit" class="knopf gross" id="senden">Stimme abschicken</button>
+    <p class="status" id="sende-status"></p>
+    <noscript><div class="callout warn">Ohne JavaScript kann das Formular nicht direkt senden. Schreib mir deine Antworten einfach per Mail: <a href="mailto:jay@aivantum.com?subject=Meine%20Referenzstimme">jay@aivantum.com</a>.</div></noscript>
+  </section>
+
+</form>
+
+<section class="karte danke" id="danke">
+  <span class="badge">Danke</span>
+  <h2>Angekommen.</h2>
+  <p>Du bekommst gleich eine Bestätigung per Mail. Bevor irgendetwas davon erscheint, zeige ich dir die Fassung — du hast das letzte Wort.</p>
+  <p class="hinweis">Zurück zu <a href="../">aivantum.com</a>.</p>
+</section>
+</main>
+
+<footer class="fuss">
+  <span>Jay Manuzon · AIVantum</span>
+  <a href="../">aivantum.com</a>
+  <a href="https://coachjay.de" target="_blank" rel="noopener">coachjay.de</a>
+  <a href="../impressum.html">Impressum</a>
+  <a href="../datenschutz.html">Datenschutz</a>
+</footer>
+
+<script>
+/* Progressive Enhancement: Fragen und Einwilligung stehen statisch im HTML.
+   Dieses Skript fügt hinzu: Kamera/Aufnahme, Upload, JSON-Versand an den Worker. */
+(function(){
+  var WORKER = "https://aivantum-check.aivantum.workers.dev";
+  var MAX_MB = 90, MAX_SEK = 120;
+  var $ = function(id){ return document.getElementById(id); };
+  var stream = null, rec = null, teile = [], blob = null, blobTyp = "", timer = null, sek = 0;
+  var vorschau = $("vorschau"), wiedergabe = $("wiedergabe"), uhr = $("uhr"), ueberlage = $("ueberlage");
+  var kAn = $("kamera-an"), kAuf = $("aufnahme"), kWeg = $("verwerfen"), datei = $("datei"), vs = $("video-status");
+  var stichworte = ["Wer du bist, in welcher Rolle wir gearbeitet haben.", "Was Jay gemacht hat — und was danach anders war.", "Dein Satz an jemanden, der überlegt."];
+
+  function status(el, text, art){ el.textContent = text; el.className = "status" + (art ? " " + art : ""); }
+  function fmt(s){ return Math.floor(s/60) + ":" + ("0" + (s%60)).slice(-2); }
+  function mime(){
+    var k = ["video/mp4;codecs=avc1", "video/mp4", "video/webm;codecs=vp9,opus", "video/webm;codecs=vp8,opus", "video/webm"];
+    for (var i=0;i<k.length;i++){ if (window.MediaRecorder && MediaRecorder.isTypeSupported(k[i])) return k[i]; }
+    return "";
+  }
+  function zeigeVorschau(){ vorschau.style.display="block"; wiedergabe.style.display="none"; $("buehne-text").style.display="none"; }
+  function zeigeWiedergabe(){ vorschau.style.display="none"; wiedergabe.style.display="block"; $("buehne-text").style.display="none"; uhr.style.display="none"; ueberlage.style.display="none"; }
+
+  if (!window.MediaRecorder || !navigator.mediaDevices) {
+    kAn.disabled = true; kAuf.disabled = true;
+    status(vs, "Aufnahme im Browser wird hier nicht unterstützt — nimm dein Handy-Video und wähle es über „Vorhandenes Video wählen".");
+  }
+
+  kAn.addEventListener("click", function(){
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: { ideal: 1280 }, height: { ideal: 720 } }, audio: true })
+      .then(function(s){ stream = s; vorschau.srcObject = s; zeigeVorschau(); kAn.disabled = true; kAuf.disabled = false; status(vs, "Kamera läuft. Wenn du bereit bist: Aufnahme starten."); })
+      .catch(function(){ status(vs, "Kamera konnte nicht gestartet werden (Freigabe verweigert?). Du kannst stattdessen ein vorhandenes Video wählen.", "fehler"); });
+  });
+
+  kAuf.addEventListener("click", function(){
+    if (rec && rec.state === "recording") { rec.stop(); return; }
+    var typ = mime(); teile = [];
+    try { rec = typ ? new MediaRecorder(stream, { mimeType: typ }) : new MediaRecorder(stream); } catch(e){ status(vs, "Aufnahme konnte nicht starten: " + e.message, "fehler"); return; }
+    blobTyp = rec.mimeType || typ || "video/webm";
+    rec.ondataavailable = function(e){ if (e.data && e.data.size) teile.push(e.data); };
+    rec.onstop = function(){
+      clearInterval(timer); uhr.classList.remove("rot");
+      blob = new Blob(teile, { type: blobTyp });
+      wiedergabe.src = URL.createObjectURL(blob); zeigeWiedergabe();
+      kAuf.textContent = "Neu aufnehmen"; kWeg.disabled = false;
+      status(vs, "Aufnahme fertig (" + fmt(sek) + ", " + (blob.size/1048576).toFixed(1) + " MB). Sieh sie dir an — oder nimm neu auf. Hochgeladen wird beim Absenden.", "ok");
+      if (stream) { stream.getTracks().forEach(function(t){ t.stop(); }); stream = null; kAn.disabled = false; kAuf.disabled = true; }
+    };
+    sek = 0; uhr.textContent = fmt(0); uhr.style.display = "inline-block"; uhr.classList.add("rot");
+    ueberlage.style.display = "block"; ueberlage.textContent = stichworte[0];
+    rec.start(1000); kAuf.textContent = "Aufnahme beenden"; kWeg.disabled = true;
+    status(vs, "Aufnahme läuft. Beenden, wenn du fertig bist — spätestens nach zwei Minuten.");
+    timer = setInterval(function(){
+      sek++; uhr.textContent = fmt(sek);
+      ueberlage.textContent = sek < 25 ? stichworte[0] : sek < 65 ? stichworte[1] : stichworte[2];
+      if (sek >= MAX_SEK) rec.stop();
+    }, 1000);
+  });
+
+  kWeg.addEventListener("click", function(){
+    blob = null; wiedergabe.src = ""; wiedergabe.style.display = "none"; $("buehne-text").style.display = "block";
+    kWeg.disabled = true; kAuf.textContent = "Aufnahme starten"; $("videoKey").value = ""; datei.value = "";
+    status(vs, "Video verworfen.");
+  });
+
+  datei.addEventListener("change", function(){
+    var f = datei.files && datei.files[0]; if (!f) return;
+    if (f.size > MAX_MB * 1048576) { status(vs, "Die Datei ist größer als " + MAX_MB + " MB. Schick sie mir bitte per Mail oder WhatsApp.", "fehler"); datei.value = ""; return; }
+    blob = f; blobTyp = f.type || "video/mp4";
+    wiedergabe.src = URL.createObjectURL(f); zeigeWiedergabe(); kWeg.disabled = false;
+    status(vs, "Video gewählt (" + (f.size/1048576).toFixed(1) + " MB). Hochgeladen wird beim Absenden.", "ok");
+  });
+
+  function upload(){
+    return new Promise(function(loes, wirf){
+      if (!blob) { loes(""); return; }
+      if (blob.size > MAX_MB * 1048576) { wirf(new Error("zu_gross")); return; }
+      var fb = $("fortschritt"); fb.style.display = "block";
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", WORKER + "/stimme/upload");
+      xhr.setRequestHeader("Content-Type", blobTyp || "application/octet-stream");
+      xhr.upload.onprogress = function(e){ if (e.lengthComputable) fb.firstElementChild.style.width = Math.round(e.loaded/e.total*100) + "%"; };
+      xhr.onload = function(){
+        try { var r = JSON.parse(xhr.responseText); if (xhr.status === 200 && r.ok && r["key"]) { loes(r["key"]); return; } wirf(new Error(r.error || ("http_" + xhr.status))); }
+        catch(e){ wirf(new Error("antwort_unlesbar")); }
+      };
+      xhr.onerror = function(){ wirf(new Error("netz")); };
+      xhr.send(blob);
+    });
+  }
+
+  $("bogen").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var f = ev.target, ss = $("sende-status"), knopf = $("senden");
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status(ss, "Bitte eine gültige E-Mail-Adresse — nur für die Bestätigung.", "fehler"); f.email.focus(); return; }
+    if (!f.einwilligung.checked) { status(ss, "Ohne dein Einverständnis darf ich nichts speichern — bitte den letzten Haken setzen.", "fehler"); return; }
+    var text = [f.q1.value, f.q2.value, f.q3.value, f.q4.value, f.q5.value].join("").trim();
+    if (!text && !blob) { status(ss, "Mindestens eine Antwort oder ein Video — sonst ist nichts da, was ich verwenden könnte.", "fehler"); return; }
+    knopf.disabled = true; status(ss, blob ? "Video wird hochgeladen …" : "Wird gesendet …");
+    upload().then(function(key){
+      $("videoKey").value = key || "";
+      if (blob && !key) throw new Error("upload_leer");
+      status(ss, "Wird gesendet …");
+      var nutz = {};
+      ["q1","q2","q3","q4","q5","name","email","rolle","firma","website"].forEach(function(k){ nutz[k] = f[k].value; });
+      nutz.namensform = (f.querySelector("input[name=namensform]:checked") || {}).value || "vorname";
+      nutz.freigabe_text = f.freigabe_text.checked; nutz.freigabe_video = f.freigabe_video.checked;
+      nutz.videoKey = $("videoKey").value; nutz.art = "stimme"; nutz.source = location.host + location.pathname;
+      return fetch(WORKER + "/kontakt", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(nutz) })
+        .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j.ok) throw new Error(j.error || ("http_" + r.status)); return j; }); });
+    }).then(function(){
+      f.style.display = "none"; $("danke").style.display = "block"; window.scrollTo({ top: 0, behavior: "smooth" });
+    }).catch(function(e){
+      knopf.disabled = false;
+      var m = String(e && e.message || e);
+      var text = m === "zu_gross" ? "Das Video ist größer als " + MAX_MB + " MB. Verwirf es hier, schick es mir per Mail oder WhatsApp und sende den Text ohne Video."
+        : m === "rate_limited" ? "Zu viele Versuche in kurzer Zeit — bitte in einer Stunde noch einmal."
+        : m === "netz" ? "Keine Verbindung. Ist das Netz gerade blockiert? Notfalls: Antworten per Mail an jay@aivantum.com."
+        : "Das hat nicht geklappt (" + m + "). Bitte noch einmal versuchen — oder per Mail an jay@aivantum.com.";
+      status(ss, text, "fehler");
+    });
+  });
+})();
+</script>
+</body>
+</html>
