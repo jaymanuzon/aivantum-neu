@@ -325,6 +325,7 @@ noscript .callout{margin-top:18px}
       var m = String(e && e.message || e);
       var text = m === "zu_gross" ? "Das Video ist größer als " + MAX_MB + " MB. Verwirf es hier, schick es mir per Mail oder WhatsApp und sende den Text ohne Video."
         : m === "rate_limited" ? "Zu viele Versuche in kurzer Zeit — bitte in einer Stunde noch einmal."
+        : m === "storage_unavailable" ? "Der Video-Upload ist noch nicht freigeschaltet. Verwirf das Video hier, schick es mir per Mail oder WhatsApp — und sende den Text ohne Video."
         : m === "netz" ? "Keine Verbindung. Ist das Netz gerade blockiert? Notfalls: Antworten per Mail an jay@aivantum.com."
         : "Das hat nicht geklappt (" + m + "). Bitte noch einmal versuchen — oder per Mail an jay@aivantum.com.";
       status(ss, text, "fehler");
