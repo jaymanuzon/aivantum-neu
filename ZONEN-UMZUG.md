@@ -103,3 +103,48 @@ Quelle: `dig` gegen `nsb1.squarespacedns.com` (autoritativ). Nichts hiervon ist 
 Sie liegt bereits bei DomainFactory, ist aber **ungenutzt**: `A` zeigt auf `80.67.16.8`, den DomainFactory-Platzhalter, ein Aufruf liefert eine 302 ins Leere, HTTPS antwortet gar nicht. Genau der Zustand, in dem `coachjay.de` vor dem 25.07. war.
 
 Sie ist kein Ersatz für die `.com` — daran hängen 18 Subdomains und die gesamte Mail-Zustellung, ein Wechsel der Hauptdomain würde all das brechen. Sinnvoll wäre sie später als deutsche Zweitadresse, die auf die `.com` weiterleitet. Eigener Vorgang, nicht Teil dieses Umzugs.
+
+
+---
+
+## Nachtrag 02.09.2026 02:40 — Zone frisch aus dem Squarespace-Panel gelesen (Jay eingeloggt, Tomo read-only)
+
+**Zwei Prämissen geprüft:** (1) Das Squarespace-Domain-Panel ist **trotz gekündigtem Website-Abo voll zugänglich** (Domains → aivantum.com → DNS-Einstellungen, Verlängerung 04.05.2027 für 18 €, Auto-Renew AN, Domainsperre AN). (2) **aivantum.com liegt NICHT bei DomainFactory** (dort nur coachjay.de + aivantum.de); DF nähme sie nur als kostenpflichtige „externe Domain" (4-Schritt-Bestellung, abgebrochen bei Schritt 2). → Zwilling entweder DF-extern (Gebühr) oder **Cloudflare** (Konto vorhanden, gratis, Scan-Import) — Jays Entscheid am Wachtag.
+
+**Zone, Stand 02.09. (Panel-Scan per DOM + zwei Werte per dig @nsb1.squarespacedns.com):**
+
+```
+MX | @ | 10 | mxa.mailgun.org
+MX | @ | 10 | mxb.mailgun.org
+TXT | @ | v=spf1 include:mailgun.org ~all
+TXT | _dmarc | (im Panel-Scan geblockt, per dig:) "v=DMARC1; p=reject; pct=100; fo=1; ri=3600; sp=reject; adkim=s; aspf=s; rua=mailto:32a1088@dmarc.mailgun.org,mailto:7a82e45f@inbox.ondmarc.com; ruf=mailto:32a1088@dmarc.mailgun.org,mailto:7a82e45f@inbox.ondmarc.com;"
+TXT | k1._domainkey | (im Panel-Scan geblockt, per dig:) "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNTiNhaxeBbpm1O2euuvKkXI/t/6/SC618uDW2us/FBVl/oykKr3FaKI4EYMyzAsnW81U0mFsVXZb6YDXGewrrkz6HC9msHApA28SlApRME6smZRRyKvTlmr6ij5fkDT0zeZd34T85Un8/fVFTSq+r2lRV6CHkw21x6A90PQjSHwIDAQAB"
+A | @ | 198.185.159.144 · 198.185.159.145 · 198.49.23.144 · 198.49.23.145
+CNAME | www | ext-sq.squarespace.com
+HTTPS | @ | 1 . alpn="h2,http/1.1" ipv4hint="198.185.159.144,198.185.159.145,198.49.23.144,198.49.23.145"
+CNAME | _domainconnect | _domainconnect.domains.squarespace.com
+CNAME | litesrv._domainkey | litesrv._domainkey.mlsend.com
+TXT | @ | mailerlite-domain-verification=f5cbbdf712cc2b497d88006e6d3990e95973b2fb
+CNAME × 21 → jaymanuzon.github.io | ai-act · check · ciao · dashboard · family · gallery · hikidashi · itr · neu · okay · oldschool · ready · recall · restart · shoshin · tomo · tomodachi · truth · waechter · yaruki
+MX | send | 10 | feedback-smtp.eu-west-1.amazonses.com
+TXT | send | v=spf1 include:amazonses.com ~all
+TXT | _github-pages-challenge-jaymanuzon | a319373d0f3b5262824f0bd6eb8b76
+TXT | resend._domainkey | p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDFXMs+T8FGAZJB1AJgg26YjLJfBuuqABOwHTzz5Jop6vC/NqyHf5Q2Ov+gsS+4kcxVBU2fuT+ORevoMLqIkigFbiNe9sl3iZ0xr8iBIrCK0MgWuAckLgVUrL9d7ZFVVtH3qopnApuma+MHcKzBpzORyEiHkcjjpPJLskizlYwVgQIDAQAB
+```
+
+**Diff gegen die Messung vom 26.07.:**
+- NEU seit 26.07.: CNAMEs `family`, `okay`, `waechter` (jetzt **20** GitHub-Pages-Subdomains statt 18) · `send` MX + SPF (Resend über Amazon SES) · `_github-pages-challenge-jaymanuzon` TXT · `_domainconnect` CNAME (Squarespace-intern, beim Umzug NICHT mitnehmen) · `HTTPS`-Record am Apex (Squarespace-intern, entfällt mit Schritt 5).
+- WEG seit 26.07.: `zanshin` (der dangling CNAME aus dem Fußabdruck-Audit ist raus — dig bestätigt: leer).
+- SPF am Apex im Panel: `v=spf1 include:mailgun.org ~all` — **ohne** `include:_spf.mlsend.com a mx`, das die 26.07.-Messung zeigte. Per dig heute: `"v=spf1 a include:_spf.mlsend.com include:mailgun.org mx ~all" ‖ "mailerlite-domain-verification=f5cbbdf712cc2b497d88006e6d3990e95973b2fb"`. **Aufgelöst per dig:** autoritativ gilt weiterhin `v=spf1 a include:_spf.mlsend.com include:mailgun.org mx ~all` — die Panel-Anzeige ist nur die verkürzte „Voreinstellungs"-Darstellung. Der Zwilling nimmt den dig-Wert.
+- DMARC bleibt `p=reject` → DKIM (k1, resend, litesrv) zeichengenau übernehmen.
+
+Der Zwilling wird aus DIESER Liste gebaut, nicht aus der vom 26.07.
+
+### Zwilling als Datei + Morgen-Checkliste (02.09. 02:50, Nachtlauf)
+
+`aivantum.com.zwilling.zone` (neben diesem Runbook) ist die komplette Zone im BIND-Format, DKIM/DMARC gegen den autoritativen Nameserver gegengeprüft. **Squarespace-Nameserver-Seite gemessen:** Domains → aivantum.com → DNS → Domain-Nameserver → Schalter „Benutzerdefinierte Nameserver verwenden" — dort werden die Nameserver des neuen Anbieters eingetragen. Das ist der eine Klick des Umzugs.
+
+**Jays drei Handgriffe am Wachtag (Empfehlung Cloudflare):**
+1. Cloudflare in Chrome einloggen, „Add a site" → aivantum.com → Free-Plan. Cloudflare scannt die Zone selbst; ich vergleiche den Scan mit der Datei und importiere fehlende Einträge (Zwilling steht, nach außen passiert nichts). Alternative: DomainFactory „Externe Domain freischalten" (kostenpflichtig, 4-Schritt-Bestellung).
+2. Ich messe den Zwilling gegen die neuen Nameserver (alle 20 CNAMEs, MX, 3× DKIM, DMARC, SPF). Erst bei „identisch" geht es weiter.
+3. Jay trägt bei Squarespace die zwei neuen Nameserver ein (Schalter oben). Danach messe ich gegen 1.1.1.1 und 8.8.8.8, dann Schritt 5 (Apex/www auf GitHub Pages + CNAME-Datei im Repo).
