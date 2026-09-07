@@ -1,3 +1,8 @@
 # Interne Unterlagen — bleiben lokal, gehen nicht ins oeffentliche Repo.
 DEPLOY.md
 _patch/
+# Interne Arbeitsdateien des Umzugs (lokal_only) — nie ins oeffentliche Repo.
+UEBERGABE-*.md
+ZONEN-UMZUG.md
+*.zone
+zwilling-vergleich.py
