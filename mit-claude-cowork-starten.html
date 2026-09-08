@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Publikations-Fassung. Quelle: Vantum HQ Resources/2026-06-25-claude-cowork-einstieg-lernkanon-vantum.html
+     Einziger Unterschied: Schriften lokal statt von Google (fonts/*.woff2). Aenderungen immer in der Quelle. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mit Claude Cowork starten — Vantum</title>
+<meta name="description" content="Ein kurzer, ehrlicher Einstiegspfad in Claude Cowork und die Kontext-Logik. Kuratiert von Vantum / aivantum.">
+<style>
+/* Schriften lokal (Site-Konvention: keine Verbindung zu Google, so wie es die Datenschutzerklaerung zusichert) */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/cormorant-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/hanken-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/hanken-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/hanken-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/hanken-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/hanken-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/hanken-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/cormorant-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/cormorant-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/cormorant-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/cormorant-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/cormorant-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/hanken-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/hanken-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+  :root{
+    --bg:#fcf6ea; --surface:#ffffff; --surface-2:#f5ecdb;
+    --ink:#182b4b; --ink-soft:#56657f; --muted:#94886f;
+    --line:#ebe0cd; --line-strong:#dbcdb2;
+    --gold:#b8843e; --terra:#c2683f; --teal:#2f8f86; --ok:#2fa55f;
+    --font-body:'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+    --font-display:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --r-sm:10px; --r-md:16px; --r-lg:22px;
+    --shadow:0 1px 2px rgba(24,43,75,.05), 0 12px 30px -18px rgba(24,43,75,.22);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--bg);
+    line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px 70px}
+
+  header.mast{padding:56px 0 30px;text-align:center;border-bottom:1px solid var(--line-strong)}
+  header.mast .wrap{padding-bottom:0}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin:0 0 16px}
+  header.mast h1{font-family:var(--font-display);font-weight:700;font-size:3.1rem;line-height:1.05;
+    margin:0;letter-spacing:-.01em;color:var(--ink)}
+  header.mast p.sub{font-family:var(--font-display);font-size:1.4rem;font-weight:500;font-style:italic;
+    color:var(--ink-soft);max-width:30ch;margin:18px auto 0;line-height:1.35}
+
+  h2{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;letter-spacing:-.005em}
+  h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin:24px 0 6px}
+  p{margin:.6em 0}
+  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch;margin:8px auto 0}
+  a{color:var(--terra);font-weight:600;text-decoration:none;border-bottom:1px solid #e6c3ac}
+  a:hover{color:#9d4f2c;border-bottom-color:var(--terra)}
+  code{background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:1px 7px;
+    font-size:.86em;font-family:"SFMono-Regular",Consolas,Menlo,monospace;color:#7a5a2a}
+  .rule{height:1px;background:var(--line-strong);border:none;margin:46px 0}
+
+  .outcome{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+    padding:24px 26px;margin:18px 0;box-shadow:var(--shadow)}
+  .outcome p{margin-top:0}
+  ul.clean{list-style:none;margin:10px 0 0;padding:0}
+  ul.clean li{position:relative;padding:7px 0 7px 26px;font-size:1rem;color:var(--ink-soft)}
+  ul.clean li::before{content:"";position:absolute;left:0;top:15px;width:9px;height:9px;
+    border-radius:50%;background:var(--gold)}
+  ul.clean li b{color:var(--ink)}
+  .fine{font-size:.92rem;color:var(--muted);font-style:italic;margin-top:14px}
+
+  .mods{display:grid;gap:12px;margin:16px 0}
+  .mod-line{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+  .tag{font-family:var(--font-body);font-size:.7rem;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap;line-height:1.2}
+  .tag.must{background:#1d4477;color:#fff}
+  .tag.kur{background:var(--surface-2);color:var(--gold);border:1px solid var(--line-strong)}
+  .mod-line .txt{font-size:.98rem;color:var(--ink-soft)}
+  .mod-line .txt b{color:var(--ink)}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+    padding:22px 26px;margin:14px 0;box-shadow:var(--shadow)}
+  .card .meta{font-size:.9rem;color:var(--muted);margin:0 0 12px}
+  ol.steck{margin:8px 0 0;padding-left:22px}
+  ol.steck li{margin:9px 0;font-size:.98rem;color:var(--ink-soft)}
+  ol.steck li b{color:var(--ink)}
+
+  .module{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+    margin:18px 0;overflow:hidden;box-shadow:var(--shadow)}
+  .mhead{padding:18px 24px 14px;border-bottom:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+  .mhead .mt{font-family:var(--font-display);font-weight:600;font-size:1.45rem;color:var(--ink)}
+  .mhead .when{font-size:.82rem;color:var(--muted);font-weight:600}
+  .mbody{padding:8px 24px 20px}
+  .res{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;
+    padding:13px 0;border-bottom:1px solid var(--surface-2)}
+  .res:last-child{border-bottom:none}
+  .ic{font-size:1.05rem;width:1.5em;text-align:center;line-height:1.5}
+  .res .rt{font-weight:700;color:var(--ink)}
+  .res .rt .anchor{font-family:var(--font-body);font-size:.64rem;font-weight:800;text-transform:uppercase;
+    letter-spacing:.06em;background:var(--gold);color:#fff;padding:2px 7px;border-radius:5px;margin-left:7px;vertical-align:1px}
+  .res .rd{font-size:.92rem;color:var(--ink-soft);margin-top:3px}
+  .res .url{font-size:.82rem;word-break:break-all;display:inline-block;margin-top:4px}
+
+  .note{background:var(--surface-2);border-left:4px solid var(--teal);border-radius:0 var(--r-sm) var(--r-sm) 0;
+    padding:18px 22px;margin:20px 0;font-size:.98rem;color:var(--ink-soft)}
+  .note b{color:var(--ink)}
+
+  .cta{background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:32px 34px;margin:30px 0;
+    text-align:center;box-shadow:0 18px 44px -22px rgba(24,43,75,.6)}
+  .cta h2{font-family:var(--font-display);color:#fff;margin:0 0 10px;font-size:2rem;font-weight:600}
+  .cta p{color:#d7dde8;max-width:54ch;margin:0 auto 18px;font-size:1.05rem}
+  .cta a.btn{display:inline-block;background:var(--gold);color:#1a1205;font-weight:700;
+    padding:13px 30px;border-radius:999px;border:none;font-size:1rem;letter-spacing:.01em}
+  .cta a.btn:hover{background:#cf9a4e;color:#1a1205}
+
+  .verify{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line-strong);
+    padding-top:18px;margin-top:34px}
+  .verify b{color:var(--ink-soft)}
+  footer.sig{text-align:center;margin-top:30px;font-size:.84rem;color:var(--muted);
+    letter-spacing:.04em}
+  footer.sig b{font-family:var(--font-display);font-style:italic;font-weight:600;color:var(--gold);font-size:1.05rem}
+
+  @media print{
+    body{background:#fff;font-size:12px}
+    .card,.module,.outcome,.note,.cta{break-inside:avoid;box-shadow:none}
+    .cta{background:#fff;color:#182b4b;border:2px solid var(--ink)}
+    .cta h2,.cta p{color:#182b4b}
+    a{border:none}
+  }
+  @media (max-width:560px){
+    header.mast h1{font-size:2.3rem}
+    header.mast p.sub{font-size:1.15rem}
+    h2,.mhead .mt{font-size:1.6rem}
+    .mod-line,.res{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Vantum · aivantum</p>
+    <h1>Mit Claude Cowork starten</h1>
+    <p class="sub">Vom ersten Klick zur ersten eigenen Kontext-Schicht.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p class="lead">Die meisten nutzen KI wie eine Suchmaschine: eine Frage, eine Antwort, fertig. Es geht besser. Gib dem System einmal Kontext, und es arbeitet mit dir statt nur für dich. Dieser Pfad bringt dich in rund einer Stunde dahin, ehrlich und ohne Umwege.</p>
+
+  <h2>Was du am Ende hast</h2>
+  <div class="outcome">
+    <p style="font-size:1.02rem;margin-bottom:4px">In etwa <b>einer Stunde</b>:</p>
+    <ul class="clean">
+      <li>Du verstehst, was Claude Cowork ist und warum <b>„Kontext geben“ der eigentliche Hebel</b> ist.</li>
+      <li>Du hast deine <b>erste eigene Kontext-Datei</b> angelegt (eine <code>CLAUDE.md</code>).</li>
+      <li>Du weißt, wohin du als Nächstes gehst, wenn du tiefer willst.</li>
+    </ul>
+    <p class="fine">Kein Vollkurs. Die Reihenfolge, in der man am schnellsten anfängt.</p>
+  </div>
+
+  <h2>Die vier Module</h2>
+  <div class="mods">
+    <div class="mod-line"><span class="tag must">1 · Pflicht · 20 Min</span><span class="txt"><b>Verstehen.</b> Ein Video, ein klares Bild: Kontext statt Einzel-Prompt.</span></div>
+    <div class="mod-line"><span class="tag must">2 · Pflicht · 25 Min</span><span class="txt"><b>Aufsetzen.</b> Dein erstes eigenes System. Ab hier gehört es dir.</span></div>
+    <div class="mod-line"><span class="tag kur">3 · Kür</span><span class="txt"><b>Vertiefen.</b> Mehrere Bereiche sauber trennen, Regeln vererben.</span></div>
+    <div class="mod-line"><span class="tag kur">4 · laufend</span><span class="txt"><b>Dranbleiben.</b> Quellen für später.</span></div>
+  </div>
+
+  <hr class="rule">
+
+  <h2>Was ist das Cowork Toolkit?</h2>
+  <p>Der schnellste Weg in diese Arbeitsweise ist das <b>Cowork Toolkit</b> von Jeff Su: ein kostenloser E-Mail-Kurs mit Starter-Dateien, der genau die Kontext-Dateien für dich vorbereitet.</p>
+  <div class="card">
+    <p class="meta">Quelle: <a href="https://coworkacademy.ai/toolkit">coworkacademy.ai/toolkit</a> · Art: kostenlos, Opt-in per E-Mail. Eine vertiefende, kostenpflichtige „Cowork Academy“ ist angekündigt, aber noch nicht offen. Öffentlich sichtbar ist die Baustein-Übersicht.</p>
+    <ol class="steck">
+      <li><b>Cowork Instructions + Memory System</b> — vorbefüllte Starter-Dateien (<code>CLAUDE.md</code> / <code>MEMORY.md</code>), die Kontext über Sessions hinweg halten.</li>
+      <li><b>Writing Style Profile</b> — eine Stimm-Analyse aus deinen Schreibproben, damit der Output in deinem Ton klingt.</li>
+      <li><b>Two Pre-built Workstations</b> — fertig konfiguriert: „Email HQ“ und „Personal Finances“.</li>
+      <li><b>First Cowork Project</b> — ein Prompt, der Cowork beibringt, künftige Projekte selbst aufzusetzen.</li>
+      <li><b>Session Audit Skill</b> — ein kleiner Skill, der deine Arbeit reviewt und übersehene Regeln einfängt.</li>
+      <li><b>System Architecture</b> — die Routing-Logik und die 3-Ebenen-Vererbung (Grund-Regeln → Bereichs-Regeln → Projekt-Regeln).</li>
+    </ol>
+  </div>
+
+  <hr class="rule">
+
+  <h2>Der Pfad — Modul für Modul</h2>
+
+  <div class="module">
+    <div class="mhead"><span class="mt">1. Verstehen</span><span class="when">Pflicht · ~20 Min · Was ist Claude Cowork &amp; warum Kontext?</span></div>
+    <div class="mbody">
+      <div class="res">
+        <div class="ic">▶︎</div>
+        <div>
+          <div class="rt">Learn 80% of Claude Cowork in Under 20 Minutes — Jeff Su<span class="anchor">Anker</span></div>
+          <div class="rd">Die 7 Kern-Fähigkeiten (lokale Dateien, dauerhaftes Memory, Connectors, Skills, Projects, geplante Aufgaben) im Schnelldurchlauf.</div>
+          <a class="url" href="https://www.youtube.com/watch?v=z9rdrNrkvDY">youtube.com/watch?v=z9rdrNrkvDY</a>
+        </div>
+      </div>
+      <div class="res">
+        <div class="ic">📘</div>
+        <div>
+          <div class="rt">Introduction to Claude Cowork — Anthropic</div>
+          <div class="rd">Neutral und herstellereigen, falls du es lieber klickst als schaust.</div>
+          <a class="url" href="https://anthropic.skilljar.com/introduction-to-claude-cowork">anthropic.skilljar.com/introduction-to-claude-cowork</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="mhead"><span class="mt">2. Aufsetzen</span><span class="when">Pflicht · ~25 Min · Dein eigenes System</span></div>
+    <div class="mbody">
+      <div class="res">
+        <div class="ic">▶︎</div>
+        <div>
+          <div class="rt">My Simple Claude Cowork System (for normal people) — Jeff Su</div>
+          <div class="rd">Der Zwei-Datei-Aufbau (<code>CLAUDE.md</code> = Regeln, <code>MEMORY.md</code> = Gedächtnis), Workstations, Stimm-Profil. Schritt für Schritt, für Nicht-Techniker.</div>
+          <a class="url" href="https://www.youtube.com/watch?v=0_dSWLOHKng">youtube.com/watch?v=0_dSWLOHKng</a>
+        </div>
+      </div>
+      <div class="res">
+        <div class="ic">🧰</div>
+        <div>
+          <div class="rt">Cowork Toolkit holen</div>
+          <div class="rd">Die Starter-Dateien aus dem Steckbrief oben, kostenlos per E-Mail.</div>
+          <a class="url" href="https://coworkacademy.ai/toolkit">coworkacademy.ai/toolkit</a>
+        </div>
+      </div>
+      <div class="res">
+        <div class="ic">📘</div>
+        <div>
+          <div class="rt">Get started with Claude Cowork — Anthropic Help Center</div>
+          <div class="rd">Die offizielle Erstkonfiguration.</div>
+          <a class="url" href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork">support.claude.com/en/articles/13345190</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="mhead"><span class="mt">3. Vertiefen</span><span class="when">Kür · Workstations &amp; 3-Ebenen-Logik</span></div>
+    <div class="mbody">
+      <div class="res">
+        <div class="ic">▶︎</div>
+        <div>
+          <div class="rt">Playlist „Claude Cowork Tutorials“ — Jeff Su</div>
+          <div class="rd">Der kuratierte Pfad direkt vom Autor: Setup, Architektur, Workflows.</div>
+          <a class="url" href="https://www.youtube.com/playlist?list=PLo-kPya_Ww2zsTt9-c94kVGa1GVEfivoW">youtube.com/playlist?list=PLo-kPya_Ww2zsTt9-c94kVGa1GVEfivoW</a>
+        </div>
+      </div>
+      <div class="res">
+        <div class="ic">📘</div>
+        <div>
+          <div class="rt">Customize Claude Cowork — Anthropic-Tutorial</div>
+          <div class="rd">Cowork auf die eigene Arbeitsweise zuschneiden.</div>
+          <a class="url" href="https://claude.com/resources/tutorials/customize-claude-cowork">claude.com/resources/tutorials/customize-claude-cowork</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="mhead"><span class="mt">4. Dranbleiben</span><span class="when">laufend</span></div>
+    <div class="mbody">
+      <div class="res">
+        <div class="ic">📝</div>
+        <div>
+          <div class="rt">Top 5 Claude Cowork Tips I Wish I Knew from Day One — Jeff Su</div>
+          <div class="rd">Die Stolpersteine, die man am Anfang nicht sieht.</div>
+          <a class="url" href="https://www.jeffsu.org/top-5-claude-cowork-tips-i-wish-i-knew-from-day-one/">jeffsu.org/top-5-claude-cowork-tips-i-wish-i-knew-from-day-one</a>
+        </div>
+      </div>
+      <div class="res">
+        <div class="ic">📘</div>
+        <div>
+          <div class="rt">Best practices for getting started — Anthropic</div>
+          <div class="rd">Herstellereigene Empfehlungen, kompakt.</div>
+          <a class="url" href="https://claude.com/blog/best-practices-for-getting-started-with-claude-cowork">claude.com/blog/best-practices-for-getting-started-with-claude-cowork</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Eine kurze Daten-Faustregel.</b> Üben mit Unkritischem: Lern den Mechanismus an harmlosen Aufgaben (eigene Notizen, öffentliche Texte). Vertrauliches oder Kundendaten erst, wenn der Rahmen geklärt ist. Im Zweifel: erst fragen, dann eingeben.
+  </div>
+
+  <div class="cta">
+    <h2>Lieber begleitet starten?</h2>
+    <p>Dieser Pfad bringt dich allein gut voran. Wenn du den Kopfanteil überspringen und direkt mit einem System arbeiten willst, das auf deine Arbeit zugeschnitten ist: In einem kurzen Setup richte ich dir deine erste Kontext-Schicht ein, mit deinen Bereichen, deinem Ton, deinen Regeln.</p>
+    <a class="btn" href="https://calendar.app.google/VPussJNynjUDuBJFA">Setup mit Vantum →</a>
+  </div>
+
+  <div class="verify">
+    <b>Transparenz zu den Links.</b> Alle Links wurden vor Veröffentlichung am Endpunkt geprüft (Existenz und Thema). Hart bestätigt: die beiden Jeff-Su-Videos, die Playlist, die Anthropic-Seiten. Beim Video „My Simple Claude Cowork System“ sind Titel und Existenz bestätigt; die Kanal-Zuordnung zu Jeff Su ist sehr wahrscheinlich, aber nicht zu 100 % hart belegbar. Bewusst weggelassen: „Ultimate/Full Tutorial 2026“-Treffer fremder Kanäle ohne prüfbare Qualität.
+  </div>
+
+  <footer class="sig">
+    <b>Vantum</b> · kuratiert für aivantum · 25.06.2026<br>
+    <a href="https://aivantum.com/impressum">Impressum</a> · <a href="https://aivantum.com/datenschutz">Datenschutz</a> · <a href="https://aivantum.com/#kontakt">Kontakt</a>
+  </footer>
+
+</div>
+</body>
+</html>
