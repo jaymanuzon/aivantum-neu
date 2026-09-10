@@ -145,7 +145,7 @@ noscript .callout{margin-top:18px}
     </div>
 
     <div class="video-buehne" id="buehne">
-      <span id="buehne-text">Kamera ist aus. Tippe auf „Kamera an", um zu starten — oder lade unten eine vorhandene Aufnahme hoch.</span>
+      <span id="buehne-text">Kamera ist aus. Tippe auf „Kamera an“, um zu starten — oder lade unten eine vorhandene Aufnahme hoch.</span>
       <video id="vorschau" playsinline muted autoplay></video>
       <video id="wiedergabe" playsinline controls></video>
       <span class="uhr" id="uhr">0:00</span>
@@ -183,8 +183,8 @@ noscript .callout{margin-top:18px}
       <label>Unter welchem Namen darf deine Stimme erscheinen?</label>
       <div class="wahl">
         <label><input type="radio" name="namensform" value="voll"><span>Mit Vor- und Nachname, Rolle und Organisation<small>Die stärkste Form — und die, die du am ehesten mit deinem Arbeitgeber abstimmen willst.</small></span></label>
-        <label><input type="radio" name="namensform" value="vorname" checked><span>Nur Vorname und Rolle<small>Zum Beispiel „Marco, Bereichsleiter in einem DAX-40-Konzern".</small></span></label>
-        <label><input type="radio" name="namensform" value="anonym"><span>Ohne Namen, nur Rolle und Branche<small>Zum Beispiel „Führungskraft, Energiewirtschaft".</small></span></label>
+        <label><input type="radio" name="namensform" value="vorname" checked><span>Nur Vorname und Rolle<small>Zum Beispiel „Marco, Bereichsleiter in einem DAX-40-Konzern“.</small></span></label>
+        <label><input type="radio" name="namensform" value="anonym"><span>Ohne Namen, nur Rolle und Branche<small>Zum Beispiel „Führungskraft, Energiewirtschaft“.</small></span></label>
       </div>
     </div>
 
@@ -246,7 +246,7 @@ noscript .callout{margin-top:18px}
 
   if (!window.MediaRecorder || !navigator.mediaDevices) {
     kAn.disabled = true; kAuf.disabled = true;
-    status(vs, "Aufnahme im Browser wird hier nicht unterstützt — nimm dein Handy-Video und wähle es über „Vorhandenes Video wählen".");
+    status(vs, "Aufnahme im Browser wird hier nicht unterstützt — nimm dein Handy-Video und wähle es über „Vorhandenes Video wählen“.");
   }
 
   kAn.addEventListener("click", function(){
